@@ -15,10 +15,10 @@ public class LearnTest extends OpMode {
         br = hardwareMap.dcMotor.get("br");
         bl = hardwareMap.dcMotor.get("bl");
 
-        sl = hardwareMap.servo.get("sl");
-        sr = hardwareMap.servo.get("sr");
+        //sl = hardwareMap.servo.get("sl");
+        //sr = hardwareMap.servo.get("sr");
 
-        sl.setPosition(.18);
+        //sl.setPosition(.18);
 
         }
 
@@ -29,10 +29,17 @@ public class LearnTest extends OpMode {
             fl.setPower(1);
             bl.setPower(1);
 
+        } else {
+            fl.setZeroPowerBehavior(DcMotor.ZeroPowerBehavior.BRAKE);
+            bl.setZeroPowerBehavior(DcMotor.ZeroPowerBehavior.BRAKE);
         }
         if (gamepad1.right_stick_y > .01) {
             fr.setPower(1);
             br.setPower(1);
+
+        } else {
+            fr.setZeroPowerBehavior(DcMotor.ZeroPowerBehavior.BRAKE);
+            br.setZeroPowerBehavior(DcMotor.ZeroPowerBehavior.BRAKE);
 
         }
 
