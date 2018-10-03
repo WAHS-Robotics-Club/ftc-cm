@@ -26,9 +26,13 @@ public class LearnTest extends OpMode {
     public void loop() {
 
         if (gamepad1.left_stick_y > .01){
-            
+            fl.setPower(1);
+            bl.setPower(1);
+
         }
         if (gamepad1.right_stick_y > .01) {
+            fr.setPower(1);
+            br.setPower(1);
 
         }
 
