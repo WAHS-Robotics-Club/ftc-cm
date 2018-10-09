@@ -1,12 +1,14 @@
 package org.firstinspires.ftc.teamcode;
 
 import com.qualcomm.robotcore.eventloop.opmode.OpMode;
+import com.qualcomm.robotcore.eventloop.opmode.TeleOp;
 import com.qualcomm.robotcore.hardware.DcMotor;
-import com.qualcomm.robotcore.hardware.Servo;
+//import com.qualcomm.robotcore.hardware.Servo;
 
-public class LearnTest extends OpMode {
+@TeleOp(name = "Opmodetest")
+public class OpmodeTest extends OpMode {
     DcMotor fr, fl, br, bl;
-    Servo sl, sr;
+  //  Servo sl, sr;
 
     @Override
     public void init() {
@@ -15,10 +17,10 @@ public class LearnTest extends OpMode {
         br = hardwareMap.dcMotor.get("br");
         bl = hardwareMap.dcMotor.get("bl");
 
-        sl = hardwareMap.servo.get("sl");
-        sr = hardwareMap.servo.get("sr");
+        //sl = hardwareMap.servo.get("sl");
+        //sr = hardwareMap.servo.get("sr");
 
-        sl.setPosition(.18);
+        //sl.setPosition(.18);
 
         }
 
@@ -28,16 +30,19 @@ public class LearnTest extends OpMode {
         if (gamepad1.left_stick_y > .01){
             fl.setPower(1);
             bl.setPower(1);
+
         } else {
             fl.setZeroPowerBehavior(DcMotor.ZeroPowerBehavior.BRAKE);
             bl.setZeroPowerBehavior(DcMotor.ZeroPowerBehavior.BRAKE);
         }
         if (gamepad1.right_stick_y > .01) {
-                fr.setPower(1);
-                br.setPower(1);
+            fr.setPower(1);
+            br.setPower(1);
+
         } else {
             fr.setZeroPowerBehavior(DcMotor.ZeroPowerBehavior.BRAKE);
             br.setZeroPowerBehavior(DcMotor.ZeroPowerBehavior.BRAKE);
+
         }
 
 
