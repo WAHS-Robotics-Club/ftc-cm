@@ -26,10 +26,18 @@ public class LearnTest extends OpMode {
     public void loop() {
 
         if (gamepad1.left_stick_y > .01){
-            
+            fl.setPower(1);
+            bl.setPower(1);
+        } else {
+            fl.setZeroPowerBehavior(DcMotor.ZeroPowerBehavior.BRAKE);
+            bl.setZeroPowerBehavior(DcMotor.ZeroPowerBehavior.BRAKE);
         }
         if (gamepad1.right_stick_y > .01) {
-
+                fr.setPower(1);
+                br.setPower(1);
+        } else {
+            fr.setZeroPowerBehavior(DcMotor.ZeroPowerBehavior.BRAKE);
+            br.setZeroPowerBehavior(DcMotor.ZeroPowerBehavior.BRAKE);
         }
 
 
