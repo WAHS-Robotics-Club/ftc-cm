@@ -32,14 +32,20 @@ public class OpmodeTest extends OpMode {
             bl.setPower(1);
 
         } else {
+           fl.setPower(0);
+           bl.setPower(0);
             fl.setZeroPowerBehavior(DcMotor.ZeroPowerBehavior.BRAKE);
+
             bl.setZeroPowerBehavior(DcMotor.ZeroPowerBehavior.BRAKE);
+
         }
         if (gamepad1.right_stick_y > .01) {
-            fr.setPower(1);
-            br.setPower(1);
+            fr.setPower(-1);
+            br.setPower(-1);
 
         } else {
+            fr.setPower(0);
+            br.setPower(0);
             fr.setZeroPowerBehavior(DcMotor.ZeroPowerBehavior.BRAKE);
             br.setZeroPowerBehavior(DcMotor.ZeroPowerBehavior.BRAKE);
 
