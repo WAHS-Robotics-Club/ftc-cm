@@ -27,9 +27,12 @@ public class OpmodeTest extends OpMode {
     @Override
     public void loop() {
 
-        if (gamepad1.left_stick_y > .01){
-            fl.setPower(1);
-            bl.setPower(1);
+        float yl = gamepad1.left_stick_y;
+        float yr = gamepad1.right_stick_y;
+
+        if (Math.abs(gamepad1.left_stick_y) > .01){
+            fl.setPower(yl);
+            bl.setPower(yl);
 
         } else {
            fl.setPower(0);
@@ -39,9 +42,9 @@ public class OpmodeTest extends OpMode {
             bl.setZeroPowerBehavior(DcMotor.ZeroPowerBehavior.BRAKE);
 
         }
-        if (gamepad1.right_stick_y > .01) {
-            fr.setPower(-1);
-            br.setPower(-1);
+        if (Math.abs(gamepad1.right_stick_y) > .01) {
+            fr.setPower(-yr);
+            br.setPower(-yr);
 
         } else {
             fr.setPower(0);
