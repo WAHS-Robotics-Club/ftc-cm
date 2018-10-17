@@ -17,9 +17,20 @@ public class Holonomic_Drew extends OpMode {
 
     @Override
     public void loop() {
+        float x = gamepad1.left_stick_x;
+        float y = -gamepad1.left_stick_y;
+        float r = gamepad1.right_stick_x;
 
         if (Math.abs(gamepad1.left_stick_y) > .01 || Math.abs(gamepad1.left_stick_x) > .01) {
-
+            fl.setPower(-x - y - r);
+            fr.setPower(-x + y - r);
+            bl.setPower(x - y - r);
+            br.setPower(x + y - r);
+        }else {
+            fl.setZeroPowerBehavior(DcMotor.ZeroPowerBehavior.BRAKE);
+            bl.setZeroPowerBehavior(DcMotor.ZeroPowerBehavior.BRAKE);
+            fr.setZeroPowerBehavior(DcMotor.ZeroPowerBehavior.BRAKE);
+            br.setZeroPowerBehavior(DcMotor.ZeroPowerBehavior.BRAKE);
         }
     }
 }
