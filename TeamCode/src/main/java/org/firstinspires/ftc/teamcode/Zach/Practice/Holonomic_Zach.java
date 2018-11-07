@@ -7,7 +7,6 @@ import com.qualcomm.robotcore.hardware.DcMotor;
 import com.qualcomm.robotcore.hardware.HardwareMap;
 import com.qualcomm.robotcore.hardware.Servo;
 
-@TeleOp(name = "Holonomic_Zach")
 public class Holonomic_Zach extends OpMode {
     DcMotor fr, fl, br, bl;
     CRServo sl, sr;
@@ -20,6 +19,11 @@ public class Holonomic_Zach extends OpMode {
         bl = hardwareMap.dcMotor.get("bl");
         sl = hardwareMap.crservo.get("sl");
         sr = hardwareMap.crservo.get("sr");
+
+        fl.setZeroPowerBehavior(DcMotor.ZeroPowerBehavior.BRAKE);
+        fr.setZeroPowerBehavior(DcMotor.ZeroPowerBehavior.BRAKE);
+        bl.setZeroPowerBehavior(DcMotor.ZeroPowerBehavior.BRAKE);
+        br.setZeroPowerBehavior(DcMotor.ZeroPowerBehavior.BRAKE);
     }
 
     @Override
@@ -34,23 +38,22 @@ public class Holonomic_Zach extends OpMode {
             bl.setPower(x - y - r);
             br.setPower(x + y - r);
         } else {
-            fl.setZeroPowerBehavior(DcMotor.ZeroPowerBehavior.BRAKE);
-            fr.setZeroPowerBehavior(DcMotor.ZeroPowerBehavior.BRAKE);
-            bl.setZeroPowerBehavior(DcMotor.ZeroPowerBehavior.BRAKE);
-            br.setZeroPowerBehavior(DcMotor.ZeroPowerBehavior.BRAKE);
-
+            fl.setPower(0);
+            fr.setPower(0);
+            bl.setPower(0);
+            br.setPower(0);
         }
 
-        if (gamepad1.dpad_right = true) {
+        if (gamepad1.dpad_right) {
             sr.setPower(1);
         }
-        if (gamepad1.dpad_right = false) {
+        if (!gamepad1.dpad_right) {
             sr.setPower(0);
         }
-        if (gamepad1.dpad_left = true) {
+        if (gamepad1.dpad_left) {
             sl.setPower(1);
         }
-        if (gamepad1.dpad_left = false) {
+        if (!gamepad1.dpad_left) {
             sl.setPower(0);
         }
     }

@@ -5,7 +5,6 @@ import com.qualcomm.robotcore.eventloop.opmode.TeleOp;
 import com.qualcomm.robotcore.hardware.CRServo;
 import com.qualcomm.robotcore.hardware.DcMotor;
 
-@TeleOp (name = "CraneProject")
 public class CraneProject extends OpMode {
     DcMotor FrontLeftWheel, FrontRightWheel, BackLeftWheel, BackRightWheel;
     CRServo CraneLeft, CraneRight;
