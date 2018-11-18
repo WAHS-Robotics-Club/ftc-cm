@@ -5,10 +5,12 @@ import com.qualcomm.robotcore.eventloop.opmode.TeleOp;
 import com.qualcomm.robotcore.hardware.DcMotor;
 import com.qualcomm.robotcore.hardware.Servo;
 
+import java.util.concurrent.BrokenBarrierException;
+
 @TeleOp (name = "Player Control")
 public class TeleOp_Controller extends OpMode {
 
-    DcMotor fr, fl, br, bl; //lift;
+    DcMotor fr, fl, br, bl, arm, lift; //claw;
     Servo S1, S2;
     Object x, y, z;
 
@@ -19,13 +21,16 @@ public class TeleOp_Controller extends OpMode {
         fr = hardwareMap.dcMotor.get("fr");
         bl = hardwareMap.dcMotor.get("bl");
         br = hardwareMap.dcMotor.get("br");
-        //       lift = hardwareMap.dcMotor.get("lift");
+        arm = hardwareMap.dcMotor.get("arm");
+        lift = hardwareMap.dcMotor.get("lift");
+        //claw = hardwareMap.servo.get("claw");
 
         fl.setZeroPowerBehavior(DcMotor.ZeroPowerBehavior.BRAKE);
         fr.setZeroPowerBehavior(DcMotor.ZeroPowerBehavior.BRAKE);
         bl.setZeroPowerBehavior(DcMotor.ZeroPowerBehavior.BRAKE);
         br.setZeroPowerBehavior(DcMotor.ZeroPowerBehavior.BRAKE);
-//        lift.setZeroPowerBehavior(DcMotor.ZeroPowerBehavior.BRAKE);
+        arm.setZeroPowerBehavior(DcMotor.ZeroPowerBehavior.BRAKE);
+        lift.setZeroPowerBehavior(DcMotor.ZeroPowerBehavior.BRAKE);
 
     }
 
@@ -48,12 +53,21 @@ public class TeleOp_Controller extends OpMode {
         }
 
 
-//        if (gamepad2.right_bumper = true){
-//            lift.setPower(.6);
-//        }else {
-//            if (gamepad2.left_bumper = true){
-//                lift.setPower(-.4);
-//            }
-//        }
+        if (gamepad2.right_bumper = true){
+            arm.setPower(.4);
+        }else {
+            if (gamepad2.left_bumper = true){
+                arm.setPower(-.3);
+            }
+            arm.setPower(0);
+        }
+
+        if (Math.abs(gamepad2.right_stick_y) > 0.1){
+            lift.setPower(-gamepad2.right_stick_y);
+        }else {
+            lift.setZeroPowerBehavior(DcMotor.ZeroPowerBehavior.BRAKE);
+        }
+
+
     }
 }
