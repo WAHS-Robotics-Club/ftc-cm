@@ -5,9 +5,11 @@ import com.qualcomm.robotcore.eventloop.opmode.LinearOpMode;
 import com.qualcomm.robotcore.hardware.CRServo;
 import com.qualcomm.robotcore.hardware.DcMotor;
 
-@Autonomous (name = "Autonomous Marker")
-public class Autonomous_Blue extends LinearOpMode {
-    DcMotor FrontLeft, FrontRight, BackLeft, BackRight;// Ramp, Claw;
+import org.firstinspires.ftc.robotcore.external.Telemetry;
+
+@Autonomous (name = "Autonomous Crater")
+public class Autonomous_2 extends LinearOpMode {
+    DcMotor FrontLeft, FrontRight, BackLeft, BackRight; //Ramp, Claw;
 
 //    CRServo Lift;
 
@@ -19,10 +21,10 @@ public class Autonomous_Blue extends LinearOpMode {
         FrontRight = hardwareMap.dcMotor.get("fr");
         BackLeft = hardwareMap.dcMotor.get("bl");
         BackRight = hardwareMap.dcMotor.get("br");
-//        Ramp = hardwareMap.dcMotor.get("ramp");
-//        Claw = hardwareMap.dcMotor.get("claw");
+     //   Ramp = hardwareMap.dcMotor.get("ramp");
+     //   Claw = hardwareMap.dcMotor.get("claw");
 
-//        Lift = hardwareMap.crservo.get("lift");
+     //   Lift = hardwareMap.crservo.get("lift");
 
         FrontLeft.setZeroPowerBehavior(DcMotor.ZeroPowerBehavior.BRAKE);
         FrontRight.setZeroPowerBehavior(DcMotor.ZeroPowerBehavior.BRAKE);
@@ -45,17 +47,22 @@ public class Autonomous_Blue extends LinearOpMode {
         BackLeft.setMode(DcMotor.RunMode.RUN_TO_POSITION);
         BackRight.setMode(DcMotor.RunMode.RUN_TO_POSITION);
 
-        FrontLeft.setTargetPosition(3 * -DIAGONAL);
-        FrontRight.setTargetPosition(3 * DIAGONAL);
-        BackLeft.setTargetPosition(3 * -DIAGONAL);
-        BackRight.setTargetPosition(3 * DIAGONAL);
+        FrontLeft.setTargetPosition(-DIAGONAL);
+        FrontRight.setTargetPosition(DIAGONAL);
+        BackLeft.setTargetPosition(-DIAGONAL);
+        BackRight.setTargetPosition(DIAGONAL);
 
-        FrontLeft.setPower(1);
-        FrontRight.setPower(1);
-        BackLeft.setPower(1);
-        BackRight.setPower(1);
+        FrontLeft.setPower(.6);
+        FrontRight.setPower(.6);
+        BackLeft.setPower(.6);
+        BackRight.setPower(.6);
 
-        while (FrontLeft.isBusy() && FrontRight.isBusy() && BackLeft.isBusy() && BackRight.isBusy()) {
+        while (FrontLeft.isBusy() || FrontRight.isBusy() || BackLeft.isBusy() || BackRight.isBusy()) {
+            telemetry.addData("FL", FrontLeft.getCurrentPosition());
+            telemetry.addData("FR", FrontRight.getCurrentPosition());
+            telemetry.addData("BL", BackLeft.getCurrentPosition());
+            telemetry.addData("BR", BackRight.getCurrentPosition());
+            telemetry.update();
             Thread.sleep(1);
         }
 
@@ -66,7 +73,23 @@ public class Autonomous_Blue extends LinearOpMode {
 
         Thread.sleep(500);
 
+        FrontLeft.setMode(DcMotor.RunMode.RUN_WITHOUT_ENCODER);
+        FrontRight.setMode(DcMotor.RunMode.RUN_WITHOUT_ENCODER);
+        BackLeft.setMode(DcMotor.RunMode.RUN_WITHOUT_ENCODER);
+        BackRight.setMode(DcMotor.RunMode.RUN_WITHOUT_ENCODER);
 
+        FrontLeft.setPower(.7);
+        FrontRight.setPower(.7);
+        BackLeft.setPower(.7);
+        BackRight.setPower(.7);
 
+        Thread.sleep(666);
+
+        FrontLeft.setPower(0);
+        FrontRight.setPower(0);
+        BackLeft.setPower(0);
+        BackRight.setPower(0);
+
+        Thread.sleep(600);
     }
 }
