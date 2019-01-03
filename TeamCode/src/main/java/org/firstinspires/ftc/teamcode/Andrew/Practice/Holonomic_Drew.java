@@ -4,7 +4,6 @@ import com.qualcomm.robotcore.eventloop.opmode.OpMode;
 import com.qualcomm.robotcore.eventloop.opmode.TeleOp;
 import com.qualcomm.robotcore.hardware.DcMotor;
 
-@TeleOp (name = "Holonomic_Drew")
 public class Holonomic_Drew extends OpMode {
     DcMotor fl, bl, fr, br;
     @Override
