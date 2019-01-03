@@ -12,9 +12,9 @@ import java.util.concurrent.BrokenBarrierException;
 @TeleOp (name = "Player Control")
 public class TeleOp_Controller extends OpMode {
 
-    DcMotor fr, fl, br, bl, arm, claw, ramp, scoop;
-    CRServo lift, lifty_boi;
-    Servo cover1, cover2;
+    DcMotor fr, fl, br, bl, spinny, tnado;
+    CRServo o;
+    Servo p;
     Object x, y, z;
 
     @Override
@@ -24,21 +24,15 @@ public class TeleOp_Controller extends OpMode {
         fr = hardwareMap.dcMotor.get("fr");
         bl = hardwareMap.dcMotor.get("bl");
         br = hardwareMap.dcMotor.get("br");
-        arm = hardwareMap.dcMotor.get("arm");
-        lift = hardwareMap.crservo.get("lift");
-        claw = hardwareMap.dcMotor.get("claw");
-        ramp = hardwareMap.dcMotor.get("ramp");
-        scoop = hardwareMap.dcMotor.get("scoop");
-        lifty_boi = hardwareMap.crservo.get("lifty boi");
-        cover1 = hardwareMap.servo.get("cover1");
-        cover2 = hardwareMap.servo.get("cover2");
+        spinny = hardwareMap.dcMotor.get("spinny");
+        tnado = hardwareMap.dcMotor.get("tnado");
 
         fl.setZeroPowerBehavior(DcMotor.ZeroPowerBehavior.BRAKE);
         fr.setZeroPowerBehavior(DcMotor.ZeroPowerBehavior.BRAKE);
         bl.setZeroPowerBehavior(DcMotor.ZeroPowerBehavior.BRAKE);
         br.setZeroPowerBehavior(DcMotor.ZeroPowerBehavior.BRAKE);
-        arm.setZeroPowerBehavior(DcMotor.ZeroPowerBehavior.BRAKE);
-        claw.setZeroPowerBehavior(DcMotor.ZeroPowerBehavior.BRAKE);
+        spinny.setZeroPowerBehavior(DcMotor.ZeroPowerBehavior.BRAKE);
+
 
     }
 
@@ -60,39 +54,26 @@ public class TeleOp_Controller extends OpMode {
             br.setPower(0);
         }
 
-
-        if (gamepad2.right_bumper = true){
-            arm.setPower(.4);
+        if (gamepad2.right_bumper = true) {
+            spinny.setPower(-1);
         }else {
-            if (gamepad2.left_bumper = true){
-                arm.setPower(.4);
-            }
-            arm.setPower(0);
+            spinny.setPower(0);
         }
-
-        if (Math.abs(gamepad2.right_stick_y) > 0.1){
-            lift.setPower(gamepad2.right_stick_y);
+        if (gamepad2.left_bumper = true) {
+            spinny.setPower(1);
         }else {
-            lift.setPower(0);
+            spinny.setPower(0);
         }
 
-        if (gamepad2.b){
-            cover1.setPosition(1);
-            cover2.setPosition(1);
-        }else{
-            cover1.setPosition(0);
-            cover1.setPosition(0);
+        if (gamepad1.dpad_up = true) {
+            tnado.setPower(-.6);
+        }else {
+            tnado.setPower(0);
         }
-
-        if (gamepad1.left_trigger > 0.1){
-            scoop.setPower(1);
-        }else{
-            scoop.setPower(0);
-        }
-        if (gamepad1.right_trigger > 0.1){
-            lifty_boi.setPower(1);
-        }else{
-            lifty_boi.setPower(0);
+        if (gamepad1.dpad_down = true) {
+            tnado.setPower(.4);
+        }else {
+            tnado.setPower(0);
         }
     }
 }
