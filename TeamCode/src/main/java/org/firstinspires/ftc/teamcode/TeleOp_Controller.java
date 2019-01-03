@@ -4,6 +4,7 @@ import com.qualcomm.robotcore.eventloop.opmode.OpMode;
 import com.qualcomm.robotcore.eventloop.opmode.TeleOp;
 import com.qualcomm.robotcore.hardware.CRServo;
 import com.qualcomm.robotcore.hardware.DcMotor;
+import com.qualcomm.robotcore.hardware.Gamepad;
 import com.qualcomm.robotcore.hardware.Servo;
 
 import java.util.concurrent.BrokenBarrierException;
@@ -83,6 +84,15 @@ public class TeleOp_Controller extends OpMode {
             cover1.setPosition(0);
         }
 
-        if (gamepad1.left_trigger)
+        if (gamepad1.left_trigger > 0.1){
+            scoop.setPower(1);
+        }else{
+            scoop.setPower(0);
+        }
+        if (gamepad1.right_trigger > 0.1){
+            lifty_boi.setPower(1);
+        }else{
+            lifty_boi.setPower(0);
+        }
     }
 }
