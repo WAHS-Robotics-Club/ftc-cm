@@ -5,8 +5,8 @@ import com.qualcomm.robotcore.eventloop.opmode.TeleOp;
 import com.qualcomm.robotcore.hardware.DcMotor;
 //import com.qualcomm.robotcore.hardware.Servo;
 
-@TeleOp(name = "Player Control")
-public class PlayerControl extends OpMode {
+@TeleOp(name = "TestOp")
+public class TestOp extends OpMode {
     DcMotor fr, fl, br, bl;
 
     @Override
