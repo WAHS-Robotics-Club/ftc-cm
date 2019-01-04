@@ -35,7 +35,7 @@ public class Autonomous_Blue extends LinearOpMode {
         double distance = 24;
         int MOVEMENT = (int) (distance / (DIAMETER * Math.PI)) * ENCODER_SINGLE_ROTATION;
 
-        double DiagDist = 33.25;
+        double DiagDist = 35.25;
         int DIAGONAL = (int) (DiagDist / (DIAMETER * Math.PI)) * ENCODER_SINGLE_ROTATION;
 
         waitForStart();
@@ -45,10 +45,10 @@ public class Autonomous_Blue extends LinearOpMode {
         BackLeft.setMode(DcMotor.RunMode.RUN_TO_POSITION);
         BackRight.setMode(DcMotor.RunMode.RUN_TO_POSITION);
 
-        FrontLeft.setTargetPosition(3 * -DIAGONAL);
-        FrontRight.setTargetPosition(3 * DIAGONAL);
-        BackLeft.setTargetPosition(3 * -DIAGONAL);
-        BackRight.setTargetPosition(3 * DIAGONAL);
+        FrontLeft.setTargetPosition(7/5 * -DIAGONAL);
+        FrontRight.setTargetPosition(7/5 * DIAGONAL);
+        BackLeft.setTargetPosition(7/5 * -DIAGONAL);
+        BackRight.setTargetPosition(7/5 * DIAGONAL);
 
         FrontLeft.setPower(1);
         FrontRight.setPower(1);
@@ -66,7 +66,37 @@ public class Autonomous_Blue extends LinearOpMode {
 
         Thread.sleep(500);
 
+    FrontLeft.setMode(DcMotor.RunMode.RUN_WITHOUT_ENCODER);
+    FrontRight.setMode(DcMotor.RunMode.RUN_WITHOUT_ENCODER);
+    BackLeft.setMode(DcMotor.RunMode.RUN_WITHOUT_ENCODER);
+    BackRight.setMode(DcMotor.RunMode.RUN_WITHOUT_ENCODER);
 
+        FrontLeft.setPower(1);
+        FrontRight.setPower(1);
+        BackLeft.setPower(1);
+        BackRight.setPower(1);
 
+        Thread.sleep(500);
+
+        FrontLeft.setPower(0);
+        FrontRight.setPower(0);
+        BackLeft.setPower(0);
+        BackRight.setPower(0);
+
+        Thread.sleep(500);
+
+        FrontLeft.setMode(DcMotor.RunMode.RUN_TO_POSITION);
+        FrontRight.setMode(DcMotor.RunMode.RUN_TO_POSITION);
+        BackLeft.setMode(DcMotor.RunMode.RUN_TO_POSITION);
+        BackRight.setMode(DcMotor.RunMode.RUN_TO_POSITION);
+
+        FrontLeft.setPower(9/2 * -MOVEMENT);
+        FrontRight.setPower(9/2 * MOVEMENT);
+        BackLeft.setPower(9/2 * -MOVEMENT);
+        BackRight.setPower(9/2 * MOVEMENT);
+
+        while (FrontLeft.isBusy() && FrontRight.isBusy() && BackLeft.isBusy() && BackRight.isBusy()) {
+            Thread.sleep(1);
+        }
     }
 }
