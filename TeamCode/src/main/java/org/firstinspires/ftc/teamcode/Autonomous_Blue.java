@@ -40,24 +40,26 @@ public class Autonomous_Blue extends LinearOpMode {
 
         waitForStart();
 
-        FrontLeft.setMode(DcMotor.RunMode.RUN_TO_POSITION);
-        FrontRight.setMode(DcMotor.RunMode.RUN_TO_POSITION);
-        BackLeft.setMode(DcMotor.RunMode.RUN_TO_POSITION);
-        BackRight.setMode(DcMotor.RunMode.RUN_TO_POSITION);
+        FrontLeft.setMode(DcMotor.RunMode.RUN_WITHOUT_ENCODER);
+        FrontRight.setMode(DcMotor.RunMode.RUN_WITHOUT_ENCODER);
+        BackLeft.setMode(DcMotor.RunMode.RUN_WITHOUT_ENCODER);
+        BackRight.setMode(DcMotor.RunMode.RUN_WITHOUT_ENCODER);
 
-        FrontLeft.setTargetPosition(3 * -DIAGONAL);
-        FrontRight.setTargetPosition(3 * DIAGONAL);
-        BackLeft.setTargetPosition(3 * -DIAGONAL);
-        BackRight.setTargetPosition(3 * DIAGONAL);
+//        FrontLeft.setTargetPosition(3 * -DIAGONAL);
+//        FrontRight.setTargetPosition(3 * DIAGONAL);
+//        BackLeft.setTargetPosition(3 * -DIAGONAL);
+//        BackRight.setTargetPosition(3 * DIAGONAL);
 
-        FrontLeft.setPower(1);
+        FrontLeft.setPower(-1);
         FrontRight.setPower(1);
-        BackLeft.setPower(1);
+        BackLeft.setPower(-1);
         BackRight.setPower(1);
 
-        while (FrontLeft.isBusy() && FrontRight.isBusy() && BackLeft.isBusy() && BackRight.isBusy()) {
-            Thread.sleep(1);
-        }
+        Thread.sleep(2000);
+
+//        while (FrontLeft.isBusy() && FrontRight.isBusy() && BackLeft.isBusy() && BackRight.isBusy()) {
+//            Thread.sleep(1);
+//        }
 
         FrontLeft.setPower(0);
         FrontRight.setPower(0);
@@ -66,7 +68,17 @@ public class Autonomous_Blue extends LinearOpMode {
 
         Thread.sleep(500);
 
+        FrontLeft.setPower(1);
+        FrontRight.setPower(1);
+        BackLeft.setPower(1);
+        BackRight.setPower(1);
 
+        Thread.sleep(400);
+
+        FrontLeft.setPower(0);
+        FrontRight.setPower(0);
+        BackLeft.setPower(0);
+        BackRight.setPower(0);
 
     }
 }
