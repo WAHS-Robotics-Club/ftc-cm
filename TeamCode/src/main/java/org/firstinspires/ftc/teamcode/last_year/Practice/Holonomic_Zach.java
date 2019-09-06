@@ -1,11 +1,8 @@
-package org.firstinspires.ftc.teamcode.Zach.Practice;
+package org.firstinspires.ftc.teamcode.last_year.Practice;
 
 import com.qualcomm.robotcore.eventloop.opmode.OpMode;
-import com.qualcomm.robotcore.eventloop.opmode.TeleOp;
 import com.qualcomm.robotcore.hardware.CRServo;
 import com.qualcomm.robotcore.hardware.DcMotor;
-import com.qualcomm.robotcore.hardware.HardwareMap;
-import com.qualcomm.robotcore.hardware.Servo;
 
 public class Holonomic_Zach extends OpMode {
     DcMotor fr, fl, br, bl;
