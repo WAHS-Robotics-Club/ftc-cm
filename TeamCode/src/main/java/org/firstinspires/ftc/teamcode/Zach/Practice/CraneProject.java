@@ -17,7 +17,7 @@ public class CraneProject extends OpMode {
         BackRightWheel = hardwareMap.dcMotor.get("BackRightWheel");
         CraneLeft = hardwareMap.crservo.get("CraneLeft");
         CraneRight = hardwareMap.crservo.get("CraneRight");
-        //bruh
+        //bruhbruh
     }
 
     @Override
