@@ -1,0 +1,20 @@
+package org.firstinspires.ftc.teamcode.Zach.Practice;
+
+import com.qualcomm.robotcore.eventloop.opmode.OpMode;
+import com.qualcomm.robotcore.eventloop.opmode.TeleOp;
+import com.qualcomm.robotcore.hardware.CRServo;
+import com.qualcomm.robotcore.hardware.DcMotor;
+import com.qualcomm.robotcore.hardware.HardwareMap;
+import com.qualcomm.robotcore.hardware.Servo;
+
+public class test extends OpMode {
+
+    Dcmotor fr, fl, br, bl;
+    CRServo sr, sl;
+
+    @Override
+
+
+
+
+}
