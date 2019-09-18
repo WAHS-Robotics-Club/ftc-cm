@@ -11,7 +11,7 @@ public class CraneProject extends OpMode {
 
     @Override
     public void init() {
-        FrontLeftWheel = hardwareMap.dcMotor.get("FrontRightWheel");
+        FrontLeftWheel = hardwareMap.dcMotor.get("FrontLeftWheel");
         FrontRightWheel = hardwareMap.dcMotor.get("FrontRightWheel");
         BackLeftWheel = hardwareMap.dcMotor.get("BackLeftWheel");
         BackRightWheel = hardwareMap.dcMotor.get("BackRightWheel");
