@@ -1,0 +1,48 @@
+package org.firstinspires.ftc.teamcode.Zach.Practice;
+
+import com.qualcomm.robotcore.eventloop.opmode.OpMode;
+import com.qualcomm.robotcore.eventloop.opmode.TeleOp;
+import com.qualcomm.robotcore.hardware.CRServo;
+import com.qualcomm.robotcore.hardware.DcMotor;
+import com.qualcomm.robotcore.hardware.HardwareMap;
+import com.qualcomm.robotcore.hardware.Servo;
+
+public class test extends OpMode {
+
+    DcMotor fr, fl, br, bl;
+    CRServo sr, sl;
+
+    @Override
+
+    public void init(){
+
+        fr = hardwareMap.dcMotor.get("fr");
+        fl = hardwareMap.dcMotor.get("fl");
+        bl = hardwareMap.dcMotor.get("bl");
+        br = hardwareMap.dcMotor.get("br");
+
+    }
+
+    public void loop() {
+
+        if (Math.abs(gamepad1.left_stick_y) > 0.1){
+
+            fr.setPower(1);
+            fl.setPower(1);
+            br.setPower(1);
+            bl.setPower(1);
+        } else {
+
+            fr.setZeroPowerBehavior(DcMotor.ZeroPowerBehavior.BRAKE);
+            fl.setZeroPowerBehavior(DcMotor.ZeroPowerBehavior.BRAKE);
+            bl.setZeroPowerBehavior(DcMotor.ZeroPowerBehavior.BRAKE);
+            br.setZeroPowerBehavior(DcMotor.ZeroPowerBehavior.BRAKE);
+
+        }
+
+
+
+
+    }
+
+}
