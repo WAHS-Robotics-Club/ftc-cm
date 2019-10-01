@@ -1,4 +1,4 @@
-package org.firstinspires.ftc.teamcode.Zach.Practice;
+package org.firstinspires.ftc.teamcode;
 
 import com.qualcomm.robotcore.eventloop.opmode.OpMode;
 import com.qualcomm.robotcore.eventloop.opmode.TeleOp;
@@ -7,12 +7,11 @@ import com.qualcomm.robotcore.hardware.DcMotor;
 import com.qualcomm.robotcore.hardware.HardwareMap;
 import com.qualcomm.robotcore.hardware.Servo;
 
-public class test extends OpMode {
+@TeleOp (name = "testing3")
+public class how extends OpMode {
 
-DcMotor fr,fl,br,bl;
-CRServo s1,s2;
-
-
+    DcMotor fr,fl,br,bl;
+    CRServo sr,sl;
 
     @Override
     public void init() {
@@ -22,7 +21,8 @@ CRServo s1,s2;
         br = hardwareMap.dcMotor.get("br");
         bl = hardwareMap.dcMotor.get("bl");
 
-
+ //       sr = hardwareMap.crservo.get("sr");
+ //       sl = hardwareMap.crservo.get("sl");
 
 
 
@@ -41,6 +41,11 @@ CRServo s1,s2;
 
         } else {
 
+            fr.setPower(0);
+            fl.setPower(0);
+            br.setPower(0);
+            bl.setPower(0);
+
             fr.setZeroPowerBehavior(DcMotor.ZeroPowerBehavior.BRAKE);
             fl.setZeroPowerBehavior(DcMotor.ZeroPowerBehavior.BRAKE);
             br.setZeroPowerBehavior(DcMotor.ZeroPowerBehavior.BRAKE);
@@ -49,7 +54,19 @@ CRServo s1,s2;
         }
 
 
+     /*   if(gamepad1.right_bumper = true){
 
+            sl.setPower(1);
+            sr.setPower(1);
+        }
+
+        if (gamepad1.right_bumper = false){
+
+            sr.setPower(0);
+            sl.setPower(0);
+
+        }
+*/
 
 
     }

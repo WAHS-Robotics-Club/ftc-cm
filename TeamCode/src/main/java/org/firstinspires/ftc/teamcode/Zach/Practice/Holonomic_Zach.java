@@ -7,6 +7,7 @@ import com.qualcomm.robotcore.hardware.DcMotor;
 import com.qualcomm.robotcore.hardware.HardwareMap;
 import com.qualcomm.robotcore.hardware.Servo;
 
+@TeleOp (name = "bruh")
 public class Holonomic_Zach extends OpMode {
     DcMotor fr, fl, br, bl;
     CRServo sl, sr;
