@@ -10,7 +10,7 @@ import com.qualcomm.robotcore.hardware.Servo;
 @TeleOp (name = "bruh")
 public class Holonomic_Zach extends OpMode {
     DcMotor fr, fl, br, bl;
-    CRServo sl, sr;
+    //CRServo sl, sr;
 
     @Override
     public void init() {
@@ -18,8 +18,8 @@ public class Holonomic_Zach extends OpMode {
         fl = hardwareMap.dcMotor.get("fl");
         br = hardwareMap.dcMotor.get("br");
         bl = hardwareMap.dcMotor.get("bl");
-        sl = hardwareMap.crservo.get("sl");
-        sr = hardwareMap.crservo.get("sr");
+       // sl = hardwareMap.crservo.get("sl");
+       // sr = hardwareMap.crservo.get("sr");
 
         fl.setZeroPowerBehavior(DcMotor.ZeroPowerBehavior.BRAKE);
         fr.setZeroPowerBehavior(DcMotor.ZeroPowerBehavior.BRAKE);
@@ -45,7 +45,7 @@ public class Holonomic_Zach extends OpMode {
             br.setPower(0);
         }
 
-        if (gamepad1.dpad_right) {
+     /*   if (gamepad1.dpad_right) {
             sr.setPower(1);
         }
         if (!gamepad1.dpad_right) {
@@ -56,6 +56,8 @@ public class Holonomic_Zach extends OpMode {
         }
         if (!gamepad1.dpad_left) {
             sl.setPower(0);
-        }
+
+
+        } */
     }
 }
