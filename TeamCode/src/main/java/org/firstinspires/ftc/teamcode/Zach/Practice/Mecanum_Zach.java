@@ -8,7 +8,7 @@ import com.qualcomm.robotcore.hardware.HardwareMap;
 import com.qualcomm.robotcore.hardware.Servo;
 
 @TeleOp (name = "bruh")
-public class Holonomic_Zach extends OpMode {
+public class Mecanum_Zach extends OpMode {
     DcMotor fr, fl, br, bl;
     //CRServo sl, sr;
 
@@ -31,13 +31,13 @@ public class Holonomic_Zach extends OpMode {
     public void loop() {
 
         float x = gamepad1.left_stick_x;
-        float y = -gamepad1.left_stick_y;
+        float y = gamepad1.left_stick_y;
         float r = gamepad1.right_stick_x;
         if (Math.abs(gamepad1.left_stick_y) > 0.1 || gamepad1.left_stick_x > .01) {
-            fl.setPower(-x - y - r);
-            fr.setPower(-x + y - r);
-            bl.setPower(x - y - r);
-            br.setPower(x + y - r);
+            fl.setPower(-x + y - r);
+            fr.setPower(-x - y - r);
+            bl.setPower(x + y - r);
+            br.setPower(x - y - r);
         } else {
             fl.setPower(0);
             fr.setPower(0);

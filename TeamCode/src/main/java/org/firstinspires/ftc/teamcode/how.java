@@ -7,7 +7,7 @@ import com.qualcomm.robotcore.hardware.DcMotor;
 import com.qualcomm.robotcore.hardware.HardwareMap;
 import com.qualcomm.robotcore.hardware.Servo;
 
-@TeleOp (name = "testing4")
+@TeleOp (name = "Main")
 public class how extends OpMode {
 
     DcMotor fr,fl,br,bl;
@@ -32,12 +32,15 @@ public class how extends OpMode {
     @Override
     public void loop() {
 
+        float move = gamepad1.left_stick_y;
+
+
         if (Math.abs(gamepad1.left_stick_y) > 0.1 ){
 
-            fr.setPower(1);
-            fl.setPower(-1);
-            br.setPower(1);
-            bl.setPower(-1);
+            fr.setPower(move);
+            fl.setPower(-move);
+            br.setPower(-move);
+            bl.setPower(move);
 
         } else {
 
