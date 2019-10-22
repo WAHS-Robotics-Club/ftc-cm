@@ -7,10 +7,10 @@ import com.qualcomm.robotcore.hardware.DcMotor;
 import com.qualcomm.robotcore.hardware.HardwareMap;
 import com.qualcomm.robotcore.hardware.Servo;
 
-@TeleOp (name = "bruh")
+@TeleOp (name = "Mecanum")
 public class Mecanum_Zach extends OpMode {
     DcMotor fr, fl, br, bl;
-    //CRServo sl, sr;
+    CRServo sr, claw;
 
     @Override
     public void init() {
@@ -18,8 +18,8 @@ public class Mecanum_Zach extends OpMode {
         fl = hardwareMap.dcMotor.get("fl");
         br = hardwareMap.dcMotor.get("br");
         bl = hardwareMap.dcMotor.get("bl");
-       // sl = hardwareMap.crservo.get("sl");
-       // sr = hardwareMap.crservo.get("sr");
+        sr = hardwareMap.crservo.get("sr");
+        claw = hardwareMap.crservo.get("claw");
 
         fl.setZeroPowerBehavior(DcMotor.ZeroPowerBehavior.BRAKE);
         fr.setZeroPowerBehavior(DcMotor.ZeroPowerBehavior.BRAKE);
@@ -31,11 +31,11 @@ public class Mecanum_Zach extends OpMode {
     public void loop() {
 
         float x = gamepad1.left_stick_x;
-        float y = gamepad1.left_stick_y;
+        float y = -gamepad1.left_stick_y;
         float r = gamepad1.right_stick_x;
-        if (Math.abs(gamepad1.left_stick_y) > 0.1 || gamepad1.left_stick_x > .01) {
-            fl.setPower(-x + y - r);
-            fr.setPower(-x - y - r);
+        if (Math.abs(gamepad1.left_stick_y) > .01 || Math.abs(gamepad1.left_stick_x) > .01 || Math.abs(gamepad1.right_stick_x) > .01) {
+            fl.setPower(-x - y - r);
+            fr.setPower(-x + y - r);
             bl.setPower(x + y - r);
             br.setPower(x - y - r);
         } else {
@@ -45,19 +45,27 @@ public class Mecanum_Zach extends OpMode {
             br.setPower(0);
         }
 
-     /*   if (gamepad1.dpad_right) {
+        if (gamepad1.dpad_right = true) {
             sr.setPower(1);
         }
-        if (!gamepad1.dpad_right) {
+
+        else if (gamepad1.dpad_left = true){
+            sr.setPower(-1);
+
+        } else {
             sr.setPower(0);
         }
-        if (gamepad1.dpad_left) {
-            sl.setPower(1);
+
+        if (gamepad1.dpad_up = true) {
+            claw.setPower(1);
         }
-        if (!gamepad1.dpad_left) {
-            sl.setPower(0);
 
+        else if (gamepad1.dpad_down = true){
+            claw.setPower(-1);
 
-        } */
+        } else {
+            claw.setPower(0);
+        }
+
     }
 }
