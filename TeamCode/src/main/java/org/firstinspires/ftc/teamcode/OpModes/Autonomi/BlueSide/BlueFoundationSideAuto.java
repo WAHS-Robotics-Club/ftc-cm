@@ -1,12 +1,12 @@
-package org.firstinspires.ftc.team9202hme.OpModes.Autonomi.BlueSide;
+package org.firstinspires.ftc.teamcode.OpModes.Autonomi.BlueSide;
 
 import com.qualcomm.robotcore.eventloop.opmode.Autonomous;
 import com.qualcomm.robotcore.eventloop.opmode.LinearOpMode;
 
-import org.firstinspires.ftc.team9202hme.Objects.BananaFruit;
-import org.firstinspires.ftc.team9202hme.Objects.DriveTrain;
-import org.firstinspires.ftc.team9202hme.Objects.Grabber;
-import org.firstinspires.ftc.team9202hme.Objects.Misc;
+import org.firstinspires.ftc.teamcode.Objects.BananaFruit;
+import org.firstinspires.ftc.teamcode.Objects.DriveTrain;
+import org.firstinspires.ftc.teamcode.Objects.Grabber;
+import org.firstinspires.ftc.teamcode.Objects.Misc;
 
 @Autonomous(name ="BlueFoundationSide - Autonomous", group = "Blue Side")
 public class BlueFoundationSideAuto extends LinearOpMode {

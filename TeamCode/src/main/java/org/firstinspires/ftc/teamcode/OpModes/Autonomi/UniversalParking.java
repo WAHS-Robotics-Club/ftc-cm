@@ -1,12 +1,12 @@
-package org.firstinspires.ftc.team9202hme.OpModes.Autonomi;
+package org.firstinspires.ftc.teamcode.OpModes.Autonomi;
 
 import com.qualcomm.robotcore.eventloop.opmode.Autonomous;
 import com.qualcomm.robotcore.eventloop.opmode.LinearOpMode;
 
-import org.firstinspires.ftc.team9202hme.Objects.BananaFruit;
-import org.firstinspires.ftc.team9202hme.Objects.DriveTrain;
-import org.firstinspires.ftc.team9202hme.Objects.Grabber;
-import org.firstinspires.ftc.team9202hme.Objects.Misc;
+import org.firstinspires.ftc.teamcode.Objects.BananaFruit;
+import org.firstinspires.ftc.teamcode.Objects.DriveTrain;
+import org.firstinspires.ftc.teamcode.Objects.Grabber;
+import org.firstinspires.ftc.teamcode.Objects.Misc;
 
 @Autonomous(name ="Universal Parking - Autonomous")
 public class UniversalParking extends LinearOpMode {

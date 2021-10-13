@@ -1,12 +1,12 @@
-package org.firstinspires.ftc.team9202hme.OpModes.TeleOp;
+package org.firstinspires.ftc.teamcode.OpModes.TeleOp;
 
 import com.qualcomm.robotcore.eventloop.opmode.OpMode;
 import com.qualcomm.robotcore.eventloop.opmode.TeleOp;
 import com.qualcomm.robotcore.hardware.DcMotor;
 
-import org.firstinspires.ftc.team9202hme.Objects.DriveTrain;
-import org.firstinspires.ftc.team9202hme.Objects.Grabber;
-import org.firstinspires.ftc.team9202hme.Objects.Misc;
+import org.firstinspires.ftc.teamcode.Objects.DriveTrain;
+import org.firstinspires.ftc.teamcode.Objects.Grabber;
+import org.firstinspires.ftc.teamcode.Objects.Misc;
 
 
 @TeleOp(name ="Single Driver TeleOp - HME", group = "TeleOp")
