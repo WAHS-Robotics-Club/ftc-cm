@@ -6,6 +6,7 @@ public class Toggle {
     private boolean toggled;
     private double time;
 
+    //e
     public Toggle(double cooldownTime) {
         this.cooldownTime = cooldownTime;
         toggled = false;
