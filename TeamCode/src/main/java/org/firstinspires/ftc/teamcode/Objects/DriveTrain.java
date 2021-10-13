@@ -9,6 +9,7 @@ import org.firstinspires.ftc.team9202hme.Tool.Toggle;
 
 public class DriveTrain{
     //Initializing the dc motor objects:
+    //Gradle Evil
 
     DcMotor flMotor;
     DcMotor frMotor;
@@ -18,7 +19,7 @@ public class DriveTrain{
     int targetHeading;
 
     public static DriveTrain initDriveTrain(HardwareMap hardwareMap) {
-        //Hardware mapping the motors: e
+        //Hardware mapping the motors:
         DriveTrain driveTrain = new DriveTrain();
 
         driveTrain.flMotor = hardwareMap.dcMotor.get("frontLeftMotor");
