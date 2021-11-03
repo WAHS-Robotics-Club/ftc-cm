@@ -20,7 +20,6 @@ public class DualDriverTeleOp extends OpMode {
         //Hardware mapping the servos:
         grabber = Grabber.initGrabber(hardwareMap);
         driveTrain = DriveTrain.initDriveTrain(hardwareMap);
-        misc = Misc.initMiscellaneous(hardwareMap);
     }
 
     /*
@@ -46,8 +45,6 @@ public class DualDriverTeleOp extends OpMode {
 
         //Misc controls
         misc.checkTogglePosition(gamepad2);
-        misc.useMiscLoop();
-
     }
 
 }
