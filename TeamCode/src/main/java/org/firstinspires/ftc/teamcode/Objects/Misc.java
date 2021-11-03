@@ -14,9 +14,9 @@ public class Misc {
 
     public static Misc initMiscellaneous(HardwareMap hardwareMap){
         Misc misc = new Misc();
-        misc.foundationGrabber = hardwareMap.servo.get("foundationServo");
+        //misc.foundationGrabber = hardwareMap.servo.get("foundationServo");
         misc.toggleFoundationGrabber = new Toggle();
-        misc.capstoneDropper = hardwareMap.servo.get("capstoneDropper");
+        //misc.capstoneDropper = hardwareMap.servo.get("capstoneDropper");
         misc.toggleCapstoneDropper = new Toggle();
 
         return misc;
@@ -31,26 +31,6 @@ public class Misc {
         }
     }
 
-    public void useMiscLoop(){
-        useFoundationGrabber();
-        useCapstoneDropper();
-    }
-
-    public void useFoundationGrabber(){
-        if(toggleFoundationGrabber.isToggled()){
-            foundationGrabber.setPosition(0);
-        }else{
-            foundationGrabber.setPosition(180);
-        }
-    }
-
-    public void useCapstoneDropper(){
-        if(toggleCapstoneDropper.isToggled()){
-            capstoneDropper.setPosition(0);
-        }else{
-            capstoneDropper.setPosition(180);
-        }
-    }
 
 
 }

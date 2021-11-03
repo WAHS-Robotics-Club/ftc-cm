@@ -1,4 +1,4 @@
-package org.firstinspires.ftc.teamcode.OpModes.Autonomi.RedSide;
+package org.firstinspires.ftc.teamcode.OpModes.Autonomi;
 
 import com.qualcomm.robotcore.eventloop.opmode.Autonomous;
 import com.qualcomm.robotcore.eventloop.opmode.LinearOpMode;
@@ -8,8 +8,8 @@ import org.firstinspires.ftc.teamcode.Objects.DriveTrain;
 import org.firstinspires.ftc.teamcode.Objects.Grabber;
 import org.firstinspires.ftc.teamcode.Objects.Misc;
 
-@Autonomous(name ="RedStoneSide - Autonomous", group = "Red Side")
-public class RedStoneSideAuto extends LinearOpMode {
+@Autonomous(name ="BlueStoneSide - Autonomous", group = "Blue Side")
+public class BlueStoneSideAuto extends LinearOpMode {
 
     DriveTrain driveTrain;
     Grabber grabber;
@@ -19,7 +19,6 @@ public class RedStoneSideAuto extends LinearOpMode {
     public void runOpMode() throws InterruptedException {
         driveTrain = DriveTrain.initDriveTrain(hardwareMap);
         grabber = Grabber.initGrabber(hardwareMap);
-        misc = Misc.initMiscellaneous(hardwareMap);
 
         telemetry.addData("IsBusy", driveTrain.isBusy());
         driveTrain.logTelemetry(telemetry, driveTrain);
@@ -31,9 +30,7 @@ public class RedStoneSideAuto extends LinearOpMode {
 
         waitForStart();
 
-
         //ONLY MODIFY STUFF AFTER THIS
-
 
         //Sets the height to a safe height
         grabber.setHeightTo(telemetry, 500);
@@ -46,7 +43,6 @@ public class RedStoneSideAuto extends LinearOpMode {
         //Setting servos and motors to the correct position
         grabber.leftServo.setPosition(0);
         grabber.rightServo.setPosition(1);
-        misc.foundationGrabber.setPosition(180);
         grabber.setHeightTo(telemetry, 0);
 
         //Going to pick up skystone
@@ -61,7 +57,7 @@ public class RedStoneSideAuto extends LinearOpMode {
         driveTrain.moveForwardsBy(telemetry, -5);
 
         //Turning towards the building side
-        driveTrain.turnToHeading(gyro, telemetry, -90);
+        driveTrain.turnToHeading(gyro, telemetry, 90);
 
         //Moving to the build side
         driveTrain.moveForwardsBy(telemetry, 40);
