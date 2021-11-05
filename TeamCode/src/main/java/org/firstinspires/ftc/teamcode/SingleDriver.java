@@ -31,9 +31,9 @@ public class SingleDriver extends OpMode {
     @Override
     public void loop(){
         //the format "motor name" (set up above) .setPower(); sets the motor speed, the range of inputs is from 0 (not moving) to 1 (full speed)
-        frontLeftMotor.setPower(gamepad1.left_stick_x + -gamepad1.left_stick_y);
-        backLeftMotor.setPower(-gamepad1.left_stick_x + -gamepad1.left_stick_y);
-        frontRightMotor.setPower(-gamepad1.left_stick_x + gamepad1.left_stick_y);
-        backRightMotor.setPower(gamepad1.left_stick_x + gamepad1.left_stick_y);
+        frontLeftMotor.setPower(-gamepad1.left_stick_x + gamepad1.left_stick_y);
+        backLeftMotor.setPower(gamepad1.left_stick_x + gamepad1.left_stick_y);
+        frontRightMotor.setPower(-gamepad1.left_stick_x + -gamepad1.left_stick_y);
+        backRightMotor.setPower(gamepad1.left_stick_x + -gamepad1.left_stick_y);
     }
 }
