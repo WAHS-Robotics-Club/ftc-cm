@@ -54,7 +54,6 @@ public class SingleDriverTeleOp extends OpMode {
 
         //Misc controls
         misc.checkTogglePosition(gamepad1);
-        misc.useMiscLoop();
 
     }
 
