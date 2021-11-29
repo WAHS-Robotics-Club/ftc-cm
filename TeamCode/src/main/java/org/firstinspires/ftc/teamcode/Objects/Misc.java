@@ -7,9 +7,9 @@ import com.qualcomm.robotcore.hardware.Servo;
 import org.firstinspires.ftc.teamcode.Tool.Toggle;
 
 public class Misc {
-    public Servo foundationGrabber;
+    //public Servo foundationGrabber;
     Toggle toggleFoundationGrabber;
-    public Servo capstoneDropper;
+    //public Servo capstoneDropper;
     Toggle toggleCapstoneDropper;
 
     public static Misc initMiscellaneous(HardwareMap hardwareMap){
