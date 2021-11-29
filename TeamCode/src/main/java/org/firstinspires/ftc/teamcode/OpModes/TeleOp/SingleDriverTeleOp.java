@@ -12,15 +12,11 @@ import org.firstinspires.ftc.teamcode.Objects.Misc;
 @TeleOp(name ="Single Driver TeleOp - CM", group = "TeleOp")
 public class SingleDriverTeleOp extends OpMode {
     //Initializing the servo objects:
-
-    //My repo now
-
+    
     Grabber grabber;
     DriveTrain driveTrain;
     Misc misc;
 
-    //Hello there
-    //General Kenobi
     @Override
     public void init(){
         //Hardware mapping the servos:
@@ -31,13 +27,6 @@ public class SingleDriverTeleOp extends OpMode {
         driveTrain.resetEncoders();
         driveTrain.setRunMode(DcMotor.RunMode.RUN_USING_ENCODER);
     }
-
-    /*
-    leftFront = 2
-    leftBack = 1
-    rightFront = 3
-    rightBack = 0
-     */
 
     @Override public void loop() {
         //Drive Train manual control system
