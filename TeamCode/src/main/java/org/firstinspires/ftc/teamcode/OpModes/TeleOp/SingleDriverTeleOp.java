@@ -12,7 +12,7 @@ import org.firstinspires.ftc.teamcode.Objects.Misc;
 @TeleOp(name ="Single Driver TeleOp - CM", group = "TeleOp")
 public class SingleDriverTeleOp extends OpMode {
     //Initializing the servo objects:
-    
+
     Grabber grabber;
     DriveTrain driveTrain;
     Misc misc;
