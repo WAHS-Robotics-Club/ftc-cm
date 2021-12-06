@@ -33,11 +33,11 @@ public class Grabber {
 
     public void checkToggleGrabber(){
         if(toggleGrabber.isToggled()){
-            rightServo.setPosition(0.05);
-            leftServo.setPosition(0.95);
-        }else{
             rightServo.setPosition(0.95);
             leftServo.setPosition(0.05);
+        }else{
+            rightServo.setPosition(0.05);
+            leftServo.setPosition(0.95);
         }
     }
     public void setHeightTo(Telemetry telemetry, int targetPosition) throws InterruptedException{
@@ -60,6 +60,10 @@ public class Grabber {
             toggleGrabber.toggle();
         }
         checkToggleGrabber();
+    }
+
+    public void forceToggleGrabber(){
+        toggleGrabber.toggle();
     }
 
     public void ManualSpoolMotor(Gamepad gamepad) {

@@ -38,33 +38,27 @@ public class BlueStoneSideAuto extends LinearOpMode {
 
 
         //Setting servos and motors to the correct position
-        grabber.leftServo.setPosition(0.05);
-        grabber.rightServo.setPosition(0.95);
+        grabber.checkToggleGrabber();
 
         sleep(1000);
         grabber.setHeightTo(telemetry, 10000);
 
         driveTrain.moveForwardsBy(telemetry, 10);
 
-        grabber.leftServo.setPosition(0.95);
-        grabber.rightServo.setPosition(0.05);
+        grabber.forceToggleGrabber();
+        grabber.checkToggleGrabber();
         sleep(1000);
 
-        //Moving back one tile
         driveTrain.moveForwardsBy(telemetry, -5);
 
-        //Turning towards the building side
-        driveTrain.turnToHeading(gyro, telemetry, 180);
+        driveTrain.turnToHeading(gyro, telemetry, 90);
 
-        //Moving to the build side
         driveTrain.moveForwardsBy(telemetry, 5);
 
-        //Letting go of skystone
-        grabber.leftServo.setPosition(0.05);
-        grabber.rightServo.setPosition(0.95);
+        grabber.forceToggleGrabber();
+        grabber.checkToggleGrabber();
         sleep(1000);
 
-        //Parking
         driveTrain.moveForwardsBy(telemetry, -5);
 
         grabber.setHeightTo(telemetry, 0);
