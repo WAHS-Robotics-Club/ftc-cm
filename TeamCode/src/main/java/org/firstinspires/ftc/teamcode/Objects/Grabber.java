@@ -31,13 +31,13 @@ public class Grabber {
         return grabber;
     }
 
-    public void CheckToggleGrabber(){
+    public void checkToggleGrabber(){
         if(toggleGrabber.isToggled()){
             rightServo.setPosition(0.05);
             leftServo.setPosition(0.95);
         }else{
-            rightServo.setPosition(1);
-            leftServo.setPosition(0);
+            rightServo.setPosition(0.95);
+            leftServo.setPosition(0.05);
         }
     }
     public void setHeightTo(Telemetry telemetry, int targetPosition) throws InterruptedException{
@@ -59,7 +59,7 @@ public class Grabber {
         if(gamepad1.right_bumper) {
             toggleGrabber.toggle();
         }
-        CheckToggleGrabber();
+        checkToggleGrabber();
     }
 
     public void ManualSpoolMotor(Gamepad gamepad) {
@@ -76,16 +76,16 @@ public class Grabber {
     }
 
     private void SpoolMotorControl(float Power, Gamepad gamepad){
-        if (spoolMotor.getCurrentPosition() < 12300 && spoolMotor.getCurrentPosition() > -10 || gamepad.dpad_right) {
+        if (spoolMotor.getCurrentPosition() < 16000 && spoolMotor.getCurrentPosition() > -10 || gamepad.dpad_right) {
             if (Math.abs(Power) >= 0.1) {
                 spoolMotor.setPower(Power);
             } else {
                 spoolMotor.setPower(0);
             }
         }else if(spoolMotor.getCurrentPosition() > -10){
-            spoolMotor.setPower(-.2);
+            spoolMotor.setPower(-.3);
         }else{
-            spoolMotor.setPower(.2);
+            spoolMotor.setPower(.3);
         }
 
         if(gamepad.dpad_up){

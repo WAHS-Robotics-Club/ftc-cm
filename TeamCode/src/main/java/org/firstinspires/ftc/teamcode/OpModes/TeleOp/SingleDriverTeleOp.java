@@ -42,7 +42,7 @@ public class SingleDriverTeleOp extends OpMode {
         telemetry.addData("spool motor position", grabber.spoolMotor.getCurrentPosition());
 
         //Misc controls
-        misc.checkTogglePosition(gamepad1);
+        misc.manualTogglePosition(gamepad1);
 
     }
 

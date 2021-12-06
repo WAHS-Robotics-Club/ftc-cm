@@ -10,25 +10,31 @@ public class Misc {
     //public Servo foundationGrabber;
     Toggle toggleFoundationGrabber;
     //public Servo capstoneDropper;
-    Toggle toggleCapstoneDropper;
+    Toggle toggleSpinnerServo;
+    public Servo spinnerServo;
 
     public static Misc initMiscellaneous(HardwareMap hardwareMap){
         Misc misc = new Misc();
         //misc.foundationGrabber = hardwareMap.servo.get("foundationServo");
         misc.toggleFoundationGrabber = new Toggle();
         //misc.capstoneDropper = hardwareMap.servo.get("capstoneDropper");
-        misc.toggleCapstoneDropper = new Toggle();
+        misc.toggleSpinnerServo = new Toggle();
+        misc.spinnerServo = hardwareMap.servo.get("spinnerServo");
 
         return misc;
     }
 
-    public void checkTogglePosition(Gamepad gamepad){
+    public void manualTogglePosition(Gamepad gamepad){
         if(gamepad.a){
             toggleFoundationGrabber.toggle();
         }
         if(gamepad.b){
-            toggleCapstoneDropper.toggle();
+            toggleSpinnerServo.toggle();
         }
+    }
+
+    public void checkSpinnerToggle(){
+        spinnerServo.
     }
 
 
