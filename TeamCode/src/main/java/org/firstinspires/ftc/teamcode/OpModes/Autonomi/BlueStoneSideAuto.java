@@ -34,21 +34,18 @@ public class BlueStoneSideAuto extends LinearOpMode {
 
         //Sets the height to a safe height
         grabber.setHeightTo(telemetry, 500);
-
         //The encoders on everything except the spool motor reset each time you run it
 
 
-        //THIS IS THE AUTONOMOUS CODE FOR BLUE STONE SIDE
-
         //Setting servos and motors to the correct position
-        grabber.leftServo.setPosition(0);
-        grabber.rightServo.setPosition(1);
-        grabber.setHeightTo(telemetry, 0);
+        grabber.leftServo.setPosition(0.05);
+        grabber.rightServo.setPosition(0.95);
 
-        //Going to pick up skystone
-        driveTrain.moveForwardsBy(telemetry, 26);
+        sleep(1000);
+        grabber.setHeightTo(telemetry, 10000);
 
-        //Picking up skystone
+        driveTrain.moveForwardsBy(telemetry, 10);
+
         grabber.leftServo.setPosition(0.95);
         grabber.rightServo.setPosition(0.05);
         sleep(1000);
@@ -57,18 +54,22 @@ public class BlueStoneSideAuto extends LinearOpMode {
         driveTrain.moveForwardsBy(telemetry, -5);
 
         //Turning towards the building side
-        driveTrain.turnToHeading(gyro, telemetry, 90);
+        driveTrain.turnToHeading(gyro, telemetry, 180);
 
         //Moving to the build side
-        driveTrain.moveForwardsBy(telemetry, 40);
+        driveTrain.moveForwardsBy(telemetry, 5);
 
         //Letting go of skystone
-        grabber.leftServo.setPosition(0);
-        grabber.rightServo.setPosition(1);
+        grabber.leftServo.setPosition(0.05);
+        grabber.rightServo.setPosition(0.95);
         sleep(1000);
 
         //Parking
-        driveTrain.moveForwardsBy(telemetry, -16);
+        driveTrain.moveForwardsBy(telemetry, -5);
+
+        grabber.setHeightTo(telemetry, 0);
+
+        sleep(2500);
 
         //STILL REQUIRES TESTING
     }
