@@ -69,10 +69,10 @@ public class DriveTrain{
         rotations = inches / (4*Math.PI);
         targetPosition = (int)(rotations * 1120);
 
-        flMotor.setTargetPosition(-targetPosition);
-        frMotor.setTargetPosition(targetPosition);
-        blMotor.setTargetPosition(-targetPosition);
-        brMotor.setTargetPosition(targetPosition);
+        flMotor.setTargetPosition(targetPosition);
+        frMotor.setTargetPosition(-targetPosition);
+        blMotor.setTargetPosition(targetPosition);
+        brMotor.setTargetPosition(-targetPosition);
 
         setRunMode(DcMotor.RunMode.RUN_TO_POSITION);
     }
@@ -126,15 +126,15 @@ public class DriveTrain{
         basePower = 0.1;
 
         if(targetHeading < currentHeading - .5){
-            flMotor.setPower(-basePower * modifier);
-            frMotor.setPower(-basePower * modifier);
-            blMotor.setPower(-basePower * modifier);
-            brMotor.setPower(-basePower * modifier);
-        }else if(targetHeading > currentHeading + .5){
             flMotor.setPower(basePower * modifier);
             frMotor.setPower(basePower * modifier);
             blMotor.setPower(basePower * modifier);
             brMotor.setPower(basePower * modifier);
+        }else if(targetHeading > currentHeading + .5){
+            flMotor.setPower(-basePower * modifier);
+            frMotor.setPower(-basePower * modifier);
+            blMotor.setPower(-basePower * modifier);
+            brMotor.setPower(-basePower * modifier);
         }else{
             flMotor.setPower(0);
             frMotor.setPower(0);

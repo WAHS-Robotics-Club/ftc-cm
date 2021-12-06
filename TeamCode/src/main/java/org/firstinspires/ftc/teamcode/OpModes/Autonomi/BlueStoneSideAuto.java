@@ -39,15 +39,15 @@ public class BlueStoneSideAuto extends LinearOpMode {
 
         //Setting servos and motors to the correct position
         grabber.checkToggleGrabber();
-
         sleep(1000);
-        grabber.setHeightTo(telemetry, 10000);
 
         driveTrain.moveForwardsBy(telemetry, 10);
 
         grabber.forceToggleGrabber();
         grabber.checkToggleGrabber();
         sleep(1000);
+
+        grabber.setHeightTo(telemetry, 10000);
 
         driveTrain.moveForwardsBy(telemetry, -5);
 
