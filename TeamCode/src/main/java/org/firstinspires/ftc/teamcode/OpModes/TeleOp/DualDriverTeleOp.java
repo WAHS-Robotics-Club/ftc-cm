@@ -38,6 +38,7 @@ public class DualDriverTeleOp extends OpMode {
 
         //Misc controls
         misc.manualTogglePosition(gamepad2);
+        misc.runCarouselServo();
     }
 
 }

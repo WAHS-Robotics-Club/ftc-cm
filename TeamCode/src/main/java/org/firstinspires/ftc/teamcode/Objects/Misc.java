@@ -1,5 +1,6 @@
 package org.firstinspires.ftc.teamcode.Objects;
 
+import com.qualcomm.robotcore.hardware.CRServoImplEx;
 import com.qualcomm.robotcore.hardware.Gamepad;
 import com.qualcomm.robotcore.hardware.HardwareMap;
 import com.qualcomm.robotcore.hardware.Servo;
@@ -11,7 +12,7 @@ public class Misc {
     Toggle toggleFoundationGrabber;
     //public Servo capstoneDropper;
     Toggle toggleSpinnerServo;
-    public Servo spinnerServo;
+    CRServoImplEx carouselServo;
 
     public static Misc initMiscellaneous(HardwareMap hardwareMap){
         Misc misc = new Misc();
@@ -19,24 +20,24 @@ public class Misc {
         misc.toggleFoundationGrabber = new Toggle();
         //misc.capstoneDropper = hardwareMap.servo.get("capstoneDropper");
         misc.toggleSpinnerServo = new Toggle();
-        misc.spinnerServo = hardwareMap.servo.get("spinnerServo");
+        misc.carouselServo = (CRServoImplEx) hardwareMap.crservo.get("spinnerServo");
 
         return misc;
     }
 
     public void manualTogglePosition(Gamepad gamepad){
-        if(gamepad.a){
-            toggleFoundationGrabber.toggle();
-        }
         if(gamepad.b){
             toggleSpinnerServo.toggle();
         }
     }
 
-    public void checkSpinnerToggle(){
-        spinnerServo.
+    public void runCarouselServo(){
+        if(toggleSpinnerServo.isToggled()){
+            carouselServo.setPower(1);
+        }else{
+            carouselServo.setPower(0);
+        }
     }
-
 
 
 }

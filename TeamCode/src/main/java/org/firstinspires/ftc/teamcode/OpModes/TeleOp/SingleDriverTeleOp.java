@@ -43,6 +43,7 @@ public class SingleDriverTeleOp extends OpMode {
 
         //Misc controls
         misc.manualTogglePosition(gamepad1);
+        misc.runCarouselServo();
 
     }
 
