@@ -123,7 +123,7 @@ public class DriveTrain{
 
         double modifier, basePower;
         modifier = ((Math.sqrt(Math.abs(targetHeading - currentHeading)))/2);
-        basePower = 0.3;
+        basePower = 0.2;
 
         if(targetHeading < currentHeading - .5){
             flMotor.setPower(basePower * modifier);
