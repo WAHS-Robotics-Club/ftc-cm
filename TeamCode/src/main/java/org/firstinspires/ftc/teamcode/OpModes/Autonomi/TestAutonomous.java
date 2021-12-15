@@ -8,8 +8,8 @@ import org.firstinspires.ftc.teamcode.Objects.DriveTrain;
 import org.firstinspires.ftc.teamcode.Objects.Grabber;
 import org.firstinspires.ftc.teamcode.Objects.Misc;
 
-@Autonomous(name ="BlueStoneSide - Autonomous", group = "Blue Side")
-public class BlueStoneSideAuto extends LinearOpMode {
+@Autonomous(name ="Test Autonomous - Autonomous")
+public class TestAutonomous extends LinearOpMode {
 
     DriveTrain driveTrain;
     Grabber grabber;
