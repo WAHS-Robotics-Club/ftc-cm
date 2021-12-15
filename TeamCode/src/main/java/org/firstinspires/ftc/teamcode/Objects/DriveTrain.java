@@ -17,6 +17,7 @@ public class DriveTrain{
     DcMotor brMotor;
     Toggle toggleSpeed;
     int targetHeading;
+    //Sets the acceptable margin of error for the heading (in degrees)
     final double HEADING_ACCURACY = 0.5;
 
     public static DriveTrain initDriveTrain(HardwareMap hardwareMap) {
