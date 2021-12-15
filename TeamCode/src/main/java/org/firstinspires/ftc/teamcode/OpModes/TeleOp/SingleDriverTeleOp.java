@@ -8,11 +8,9 @@ import org.firstinspires.ftc.teamcode.Objects.DriveTrain;
 import org.firstinspires.ftc.teamcode.Objects.Grabber;
 import org.firstinspires.ftc.teamcode.Objects.Misc;
 
-
 @TeleOp(name ="Single Driver TeleOp - CM", group = "TeleOp")
 public class SingleDriverTeleOp extends OpMode {
-    //Initializing the servo objects:
-
+    //Initializing the main objects:
     Grabber grabber;
     DriveTrain driveTrain;
     Misc misc;
@@ -39,7 +37,7 @@ public class SingleDriverTeleOp extends OpMode {
 
         //Spool controls
         grabber.ManualSpoolMotor(gamepad1);
-        telemetry.addData("spool motor position", grabber.spoolMotor.getCurrentPosition());
+        telemetry.addData("Spool Motor Position", grabber.spoolMotor.getCurrentPosition());
 
         //Misc controls
         misc.manualTogglePosition(gamepad1);
