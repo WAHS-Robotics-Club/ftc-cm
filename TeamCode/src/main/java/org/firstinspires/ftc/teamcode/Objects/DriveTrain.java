@@ -17,6 +17,7 @@ public class DriveTrain{
     DcMotor brMotor;
     Toggle toggleSpeed;
     int targetHeading;
+    final double HEADING_ACCURACY = 0.5;
 
     public static DriveTrain initDriveTrain(HardwareMap hardwareMap) {
         //Hardware mapping the motors:
@@ -107,7 +108,7 @@ public class DriveTrain{
     }
 
     public boolean isCorrectHeading(int currentHeading){
-        if(targetHeading == currentHeading){
+        if(targetHeading < currentHeading + HEADING_ACCURACY && targetHeading > currentHeading - HEADING_ACCURACY){
             return true;
         }else{
             return false;
@@ -125,12 +126,12 @@ public class DriveTrain{
         modifier = ((Math.sqrt(Math.abs(targetHeading - currentHeading)))/2);
         basePower = 0.15;
 
-        if(targetHeading < currentHeading - 1){
+        if(targetHeading < currentHeading - HEADING_ACCURACY){
             flMotor.setPower(basePower * modifier);
             frMotor.setPower(basePower * modifier);
             blMotor.setPower(basePower * modifier);
             brMotor.setPower(basePower * modifier);
-        }else if(targetHeading > currentHeading + 1){
+        }else if(targetHeading > currentHeading + HEADING_ACCURACY){
             flMotor.setPower(-basePower * modifier);
             frMotor.setPower(-basePower * modifier);
             blMotor.setPower(-basePower * modifier);
