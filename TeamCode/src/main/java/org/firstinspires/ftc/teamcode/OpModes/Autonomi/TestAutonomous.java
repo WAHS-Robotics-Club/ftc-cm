@@ -73,7 +73,7 @@ public class TestAutonomous extends LinearOpMode {
 
         driveTrain.turnToHeading(gyro, telemetry, -90);
 
-        driveTrain.moveForwardsBy(telemetry, 1);
+        driveTrain.moveForwardsBy(telemetry, 5);
 
         sleep(2500);
 
