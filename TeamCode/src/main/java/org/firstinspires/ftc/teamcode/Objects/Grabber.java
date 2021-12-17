@@ -40,6 +40,7 @@ public class Grabber {
             leftServo.setPosition(0.95);
         }
     }
+    
     public void setHeightTo(Telemetry telemetry, int targetPosition) throws InterruptedException{
         Thread.sleep(1);
 
