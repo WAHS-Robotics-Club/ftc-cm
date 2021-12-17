@@ -25,8 +25,8 @@ public class DriveTrain{
         DriveTrain driveTrain = new DriveTrain();
 
         driveTrain.flMotor = hardwareMap.dcMotor.get("frontLeftMotor");
-        driveTrain.frMotor = hardwareMap.dcMotor.get("frontRightMotor");
         driveTrain.blMotor = hardwareMap.dcMotor.get("backLeftMotor");
+        driveTrain.frMotor = hardwareMap.dcMotor.get("frontRightMotor");
         driveTrain.brMotor = hardwareMap.dcMotor.get("backRightMotor");
         driveTrain.toggleSpeed = new Toggle();
 
@@ -54,12 +54,12 @@ public class DriveTrain{
     }
 
     public static void logTelemetry(Telemetry telemetry, DriveTrain driveTrain) {
-        // telemetry.addData("Heading", driveTrain.getHeading() + " degrees");
+        //telemetry.addData("Heading", driveTrain.getHeading() + " degrees");
         //1120 ticks in a rotation
         telemetry.addData("FL Power", driveTrain.flMotor.getPower());
-        telemetry.addData("FR Power", driveTrain.frMotor.getPower());
         telemetry.addData("BL Power", driveTrain.blMotor.getPower());
-        telemetry.addData("BR Power", driveTrain.brMotor .getPower());
+        telemetry.addData("FR Power", driveTrain.frMotor.getPower());
+        telemetry.addData("BR Power", driveTrain.brMotor.getPower());
     }
 
     private void goForwardsTo(double inches) throws InterruptedException{
@@ -72,8 +72,8 @@ public class DriveTrain{
         targetPosition = (int)(rotations * 1120);
 
         flMotor.setTargetPosition(targetPosition);
-        frMotor.setTargetPosition(-targetPosition);
         blMotor.setTargetPosition(targetPosition);
+        frMotor.setTargetPosition(-targetPosition);
         brMotor.setTargetPosition(-targetPosition);
 
         setRunMode(DcMotor.RunMode.RUN_TO_POSITION);
@@ -81,27 +81,27 @@ public class DriveTrain{
 
     public void setRunMode(DcMotor.RunMode runMode){
         flMotor.setMode(runMode);
-        frMotor.setMode(runMode);
         blMotor.setMode(runMode);
+        frMotor.setMode(runMode);
         brMotor.setMode(runMode);
     }
 
     public void setBasePower(double power){
         flMotor.setPower(power);
-        frMotor.setPower(power);
         blMotor.setPower(power);
+        frMotor.setPower(power);
         brMotor.setPower(power);
     }
 
     public void resetEncoders(){
         flMotor.setMode(DcMotor.RunMode.STOP_AND_RESET_ENCODER);
-        frMotor.setMode(DcMotor.RunMode.STOP_AND_RESET_ENCODER);
         blMotor.setMode(DcMotor.RunMode.STOP_AND_RESET_ENCODER);
+        frMotor.setMode(DcMotor.RunMode.STOP_AND_RESET_ENCODER);
         brMotor.setMode(DcMotor.RunMode.STOP_AND_RESET_ENCODER);
     }
 
     public boolean isBusy(){
-        if(flMotor.isBusy() && frMotor.isBusy() && blMotor.isBusy() && brMotor.isBusy()){
+        if(flMotor.isBusy() && blMotor.isBusy() && frMotor.isBusy() && brMotor.isBusy()){
             return true;
         }else{
             return false;
@@ -129,18 +129,18 @@ public class DriveTrain{
 
         if(targetHeading < currentHeading - HEADING_ACCURACY){
             flMotor.setPower(basePower * modifier);
-            frMotor.setPower(basePower * modifier);
             blMotor.setPower(basePower * modifier);
+            frMotor.setPower(basePower * modifier);
             brMotor.setPower(basePower * modifier);
         }else if(targetHeading > currentHeading + HEADING_ACCURACY){
             flMotor.setPower(-basePower * modifier);
-            frMotor.setPower(-basePower * modifier);
             blMotor.setPower(-basePower * modifier);
+            frMotor.setPower(-basePower * modifier);
             brMotor.setPower(-basePower * modifier);
         }else{
             flMotor.setPower(0);
-            frMotor.setPower(0);
             blMotor.setPower(0);
+            frMotor.setPower(0);
             brMotor.setPower(0);
         }
 

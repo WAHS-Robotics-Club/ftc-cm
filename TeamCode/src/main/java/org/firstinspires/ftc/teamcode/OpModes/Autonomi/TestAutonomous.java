@@ -59,9 +59,21 @@ public class TestAutonomous extends LinearOpMode {
         grabber.checkToggleGrabber();
         sleep(1000);
 
+        driveTrain.turnToHeading(gyro, telemetry, 0);
+
         driveTrain.moveForwardsBy(telemetry, -5);
 
         grabber.setHeightTo(telemetry, 0);
+
+        grabber.setHeightTo(telemetry, 0);
+
+        driveTrain.turnToHeading(gyro, telemetry, 180);
+
+        driveTrain.moveForwardsBy(telemetry, 5);
+
+        driveTrain.turnToHeading(gyro, telemetry, -90);
+
+        driveTrain.moveForwardsBy(telemetry, 1);
 
         sleep(2500);
 
