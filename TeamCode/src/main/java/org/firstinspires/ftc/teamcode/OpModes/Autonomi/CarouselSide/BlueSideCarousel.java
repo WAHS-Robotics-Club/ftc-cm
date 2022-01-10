@@ -46,6 +46,9 @@ public class BlueSideCarousel extends LinearOpMode {
         misc.toggleCarouselAuto();
     */
 
+        grabber.setHeightTo(telemetry, 500);
+
+        driveTrain.moveForwardsBy(telemetry, 3.5);
 
 
     }

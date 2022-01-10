@@ -123,20 +123,20 @@ public class DriveTrain{
             }
         }
 
-        double modifier, basePower;
+        double modifier, startingPower;
         modifier = ((Math.sqrt(Math.abs(targetHeading - currentHeading)))/2);
-        basePower = 0.1;
+        startingPower = 0.1;
 
         if(targetHeading < currentHeading - HEADING_ACCURACY){
-            flMotor.setPower(basePower * modifier);
-            blMotor.setPower(basePower * modifier);
-            frMotor.setPower(basePower * modifier);
-            brMotor.setPower(basePower * modifier);
+            flMotor.setPower(startingPower * modifier);
+            blMotor.setPower(startingPower * modifier);
+            frMotor.setPower(startingPower * modifier);
+            brMotor.setPower(startingPower * modifier);
         }else if(targetHeading > currentHeading + HEADING_ACCURACY){
-            flMotor.setPower(-basePower * modifier);
-            blMotor.setPower(-basePower * modifier);
-            frMotor.setPower(-basePower * modifier);
-            brMotor.setPower(-basePower * modifier);
+            flMotor.setPower(-startingPower * modifier);
+            blMotor.setPower(-startingPower * modifier);
+            frMotor.setPower(-startingPower * modifier);
+            brMotor.setPower(-startingPower * modifier);
         }else{
             flMotor.setPower(0);
             blMotor.setPower(0);
@@ -146,13 +146,13 @@ public class DriveTrain{
 
     }
 
-    public void moveForwardsBy(Telemetry telemetry, int inches) throws InterruptedException{
+    public void moveForwardsBy(Telemetry telemetry, double inches) throws InterruptedException{
         //Going Forwards
         int i = 0;
+        setBasePower(0.8);
         goForwardsTo(inches);
-        setBasePower(.8);
-        Thread.sleep(1);
-        while(isBusy() && i < 500){
+        Thread.sleep(10);
+        while(isBusy() && i < 100){
             telemetry.update();
             i++;
             Thread.sleep(1);
