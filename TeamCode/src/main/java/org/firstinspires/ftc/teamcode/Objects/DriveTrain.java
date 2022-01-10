@@ -18,7 +18,7 @@ public class DriveTrain{
     Toggle toggleSpeed;
     int targetHeading;
     //Sets the acceptable margin of error for the heading (in degrees)
-    final double HEADING_ACCURACY = 0.5;
+    final double HEADING_ACCURACY = 2;
 
     public static DriveTrain initDriveTrain(HardwareMap hardwareMap) {
         //Hardware mapping the motors:
@@ -125,7 +125,7 @@ public class DriveTrain{
 
         double modifier, basePower;
         modifier = ((Math.sqrt(Math.abs(targetHeading - currentHeading)))/2);
-        basePower = 0.3;
+        basePower = 0.1;
 
         if(targetHeading < currentHeading - HEADING_ACCURACY){
             flMotor.setPower(basePower * modifier);
