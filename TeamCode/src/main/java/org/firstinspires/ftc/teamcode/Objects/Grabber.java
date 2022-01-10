@@ -67,6 +67,12 @@ public class Grabber {
         toggleGrabber.toggle();
     }
 
+    public void toggleGrabberAuto() throws InterruptedException{
+        forceToggleGrabber();
+        Thread.sleep(50);
+        checkToggleGrabber();
+    }
+
     public void ManualSpoolMotor(Gamepad gamepad) {
         //Moves the arm up and down
         if(gamepad.right_trigger >= 0.1 && gamepad.left_trigger >= 0.1){
