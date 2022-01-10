@@ -41,10 +41,18 @@ public class Grabber {
         }
     }
 
+    public double leftServoPosition(){
+        return leftServo.getPosition();
+    }
+
+    public double rightServoPosition(){
+        return rightServo.getPosition();
+    }
+
     public void setHeightTo(Telemetry telemetry, int targetPosition) throws InterruptedException{
         Thread.sleep(1);
 
-        spoolMotor.setPower(.8);
+        spoolMotor.setPower(1);
         spoolMotor.setTargetPosition(targetPosition);
         spoolMotor.setMode(DcMotor.RunMode.RUN_TO_POSITION);
 
@@ -87,7 +95,7 @@ public class Grabber {
     }
 
     private void SpoolMotorControl(float Power, Gamepad gamepad){
-        if (spoolMotor.getCurrentPosition() < 16000 && spoolMotor.getCurrentPosition() > -10 || gamepad.dpad_right) {
+        if (spoolMotor.getCurrentPosition() < 18000 && spoolMotor.getCurrentPosition() > -10 || gamepad.dpad_right) {
             if (Math.abs(Power) >= 0.1) {
                 spoolMotor.setPower(Power);
             } else {
