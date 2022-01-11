@@ -1,4 +1,4 @@
-package org.firstinspires.ftc.teamcode.OpModes.Autonomi.BasketSide;
+package org.firstinspires.ftc.teamcode.OpModes.Autonomi;
 
 import com.qualcomm.robotcore.eventloop.opmode.Autonomous;
 import com.qualcomm.robotcore.eventloop.opmode.LinearOpMode;
@@ -8,8 +8,8 @@ import org.firstinspires.ftc.teamcode.Objects.DriveTrain;
 import org.firstinspires.ftc.teamcode.Objects.Grabber;
 import org.firstinspires.ftc.teamcode.Objects.Misc;
 
-@Autonomous(name ="Blue Side, Basket - Autonomous")
-public class BlueSideBasket extends LinearOpMode {
+@Autonomous(name ="Reset - Autonomous")
+public class ResetAutonomous extends LinearOpMode {
 
     DriveTrain driveTrain;
     Grabber grabber;
@@ -47,19 +47,8 @@ public class BlueSideBasket extends LinearOpMode {
     */
 
         grabber.toggleGrabberAuto();
+        grabber.setHeightTo(telemetry, 0);
         sleep(500);
-        grabber.setHeightTo(telemetry, 1000);
-
-        driveTrain.moveForwardsBy(telemetry, 9);
-        driveTrain.turnToHeading(gyro, telemetry, 90);
-        driveTrain.moveForwardsBy(telemetry, 24);
-        driveTrain.turnToHeading(gyro, telemetry, 0);
-        driveTrain.moveForwardsBy(telemetry, 15);
-        grabber.toggleGrabberAuto();
-
-        driveTrain.moveForwardsBy(telemetry, -24);
-        driveTrain.turnToHeading(gyro, telemetry, -90);
-        driveTrain.moveForwardsBy(telemetry, 50);
-
+        
     }
 }
