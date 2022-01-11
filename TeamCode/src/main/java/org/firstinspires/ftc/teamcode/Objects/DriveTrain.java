@@ -18,7 +18,7 @@ public class DriveTrain{
     Toggle toggleSpeed;
     int targetHeading;
     //Sets the acceptable margin of error for the heading (in degrees)
-    final double HEADING_ACCURACY = 2;
+    final double HEADING_ACCURACY = 1;
 
     public static DriveTrain initDriveTrain(HardwareMap hardwareMap) {
         //Hardware mapping the motors:
@@ -116,9 +116,21 @@ public class DriveTrain{
         }
     }
 
-    private void turnRobotToHeading(int currentHeading){
-        if(currentHeading > 145 || currentHeading < -145){
-            if(currentHeading < 0){
+    private boolean isWithinDangerZone(int heading){
+        if(heading > 145 || heading < -145){
+            return true;
+        }else{
+            return false;
+        }
+    }
+
+    private void turnRobotToHeading(int currentHeading, int targetHeading){
+        if(isWithinDangerZone(targetHeading) && targetHeading < 0){
+            if(isWithinDangerZone(currentHeading) && currentHeading > 0){
+                    currentHeading -= 360;
+            }
+        }else if(isWithinDangerZone(targetHeading) && targetHeading > 0){
+            if(isWithinDangerZone(currentHeading) && currentHeading < 0){
                 currentHeading += 360;
             }
         }
@@ -165,7 +177,7 @@ public class DriveTrain{
         setRunMode(DcMotor.RunMode.RUN_USING_ENCODER);
         while(!isCorrectHeading(gyro.getHeading())){
             telemetry.update();
-            turnRobotToHeading(gyro.getHeading());
+            turnRobotToHeading(gyro.getHeading(), targetHeading);
             Thread.sleep(1);
         }
     }

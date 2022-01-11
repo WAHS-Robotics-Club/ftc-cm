@@ -34,48 +34,23 @@ public class TestAutonomous extends LinearOpMode {
 
         //Sets the height to a safe height
         grabber.setHeightTo(telemetry, 500);
-        //The encoders on everything except the spool motor reset each time you run it
+        grabber.toggleGrabberAuto();
 
+        driveTrain.moveForwardsBy(telemetry, 12);
 
-        //Setting servos and motors to the correct position
-        grabber.checkToggleGrabber();
-        sleep(1000);
-
-        driveTrain.moveForwardsBy(telemetry, 10);
-
-        grabber.forceToggleGrabber();
-        grabber.checkToggleGrabber();
-        sleep(1000);
-
-        grabber.setHeightTo(telemetry, 10000);
-
-        driveTrain.moveForwardsBy(telemetry, -5);
-
-        driveTrain.turnToHeading(gyro, telemetry, 90);
-
-        driveTrain.moveForwardsBy(telemetry, 5);
-
-        grabber.forceToggleGrabber();
-        grabber.checkToggleGrabber();
         sleep(1000);
 
         driveTrain.turnToHeading(gyro, telemetry, 0);
+        driveTrain.moveForwardsBy(telemetry, 12);
 
-        driveTrain.moveForwardsBy(telemetry, -5);
-
-        grabber.setHeightTo(telemetry, 0);
-
-        grabber.setHeightTo(telemetry, 0);
+        driveTrain.turnToHeading(gyro, telemetry, 90);
+        driveTrain.moveForwardsBy(telemetry, 12);
 
         driveTrain.turnToHeading(gyro, telemetry, 180);
-
-        driveTrain.moveForwardsBy(telemetry, 5);
+        driveTrain.moveForwardsBy(telemetry, 12);
 
         driveTrain.turnToHeading(gyro, telemetry, -90);
-
-        driveTrain.moveForwardsBy(telemetry, 5);
-
-        sleep(2500);
+        driveTrain.moveForwardsBy(telemetry, 12);
 
         //STILL REQUIRES TESTING
     }
