@@ -49,6 +49,6 @@ public class ResetAutonomous extends LinearOpMode {
         grabber.toggleGrabberAuto();
         grabber.setHeightTo(telemetry, 0);
         sleep(500);
-        
+
     }
 }
