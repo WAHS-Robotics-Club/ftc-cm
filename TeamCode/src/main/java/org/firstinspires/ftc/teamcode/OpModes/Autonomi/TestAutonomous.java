@@ -40,7 +40,6 @@ public class TestAutonomous extends LinearOpMode {
 
         sleep(1000);
 
-        driveTrain.turnToHeading(gyro, telemetry, 0);
         driveTrain.moveForwardsBy(telemetry, 12);
 
         driveTrain.turnToHeading(gyro, telemetry, 90);
@@ -51,6 +50,9 @@ public class TestAutonomous extends LinearOpMode {
 
         driveTrain.turnToHeading(gyro, telemetry, -90);
         driveTrain.moveForwardsBy(telemetry, 12);
+
+        driveTrain.turnToHeading(gyro, telemetry, 0);
+        driveTrain.moveForwardsBy(telemetry, -12);
 
         //STILL REQUIRES TESTING
     }

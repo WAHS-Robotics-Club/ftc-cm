@@ -18,7 +18,7 @@ public class DriveTrain{
     Toggle toggleSpeed;
     int targetHeading;
     //Sets the acceptable margin of error for the heading (in degrees)
-    final double HEADING_ACCURACY = 1;
+    final double HEADING_ACCURACY = 2;
 
     public static DriveTrain initDriveTrain(HardwareMap hardwareMap) {
         //Hardware mapping the motors:
@@ -100,6 +100,19 @@ public class DriveTrain{
         brMotor.setMode(DcMotor.RunMode.STOP_AND_RESET_ENCODER);
     }
 
+    public void moveForwardsBy(Telemetry telemetry, double inches) throws InterruptedException{
+        //Going Forwards
+        int i = 0;
+        setBasePower(0.8);
+        goForwardsTo(inches);
+        Thread.sleep(10);
+        while(isBusy() && i < 100){
+            telemetry.update();
+            i++;
+            Thread.sleep(1);
+        }
+    }
+
     public boolean isBusy(){
         if(flMotor.isBusy() && blMotor.isBusy() && frMotor.isBusy() && brMotor.isBusy()){
             return true;
@@ -135,8 +148,9 @@ public class DriveTrain{
             }
         }
 
-        double modifier, startingPower;
-        modifier = ((Math.sqrt(Math.abs(targetHeading - currentHeading)))/2);
+        double modifier, startingPower, difference;
+        difference = Math.abs(targetHeading - currentHeading);
+        modifier = ((Math.sqrt(difference))/2);
         startingPower = 0.1;
 
         if(targetHeading < currentHeading - HEADING_ACCURACY){
@@ -155,21 +169,9 @@ public class DriveTrain{
             frMotor.setPower(0);
             brMotor.setPower(0);
         }
-
     }
 
-    public void moveForwardsBy(Telemetry telemetry, double inches) throws InterruptedException{
-        //Going Forwards
-        int i = 0;
-        setBasePower(0.8);
-        goForwardsTo(inches);
-        Thread.sleep(10);
-        while(isBusy() && i < 100){
-            telemetry.update();
-            i++;
-            Thread.sleep(1);
-        }
-    }
+
 
     public void turnToHeading(BananaFruit gyro, Telemetry telemetry, int inputTargetHeading) throws InterruptedException{
         //Turning
