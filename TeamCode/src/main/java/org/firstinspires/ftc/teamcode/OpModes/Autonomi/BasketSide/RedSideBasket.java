@@ -51,7 +51,7 @@ public class RedSideBasket extends LinearOpMode {
         grabber.setHeightTo(telemetry, 5000);
 
         driveTrain.moveForwardsBy(telemetry, 9);
-        driveTrain.turnToHeading(gyro, telemetry, -25);
+        driveTrain.turnToHeading(gyro, telemetry, -55);
         driveTrain.moveForwardsBy(telemetry, 24.5);
         sleep(700);
         grabber.toggleGrabberAuto();
