@@ -46,18 +46,22 @@ public class RedSideBasket extends LinearOpMode {
         misc.toggleCarouselAuto();
     */
 
-        grabber.setHeightTo(telemetry, 500);
+        grabber.toggleGrabberAuto();
+        sleep(500);
+        grabber.setHeightTo(telemetry, 5000);
 
         driveTrain.moveForwardsBy(telemetry, 9);
-        driveTrain.turnToHeading(gyro, telemetry, -90);
-        driveTrain.moveForwardsBy(telemetry, 15);
-        driveTrain.turnToHeading(gyro, telemetry, 0);
-        driveTrain.moveForwardsBy(telemetry, 24);
+        driveTrain.turnToHeading(gyro, telemetry, -25);
+        driveTrain.moveForwardsBy(telemetry, 24.5);
+        sleep(700);
         grabber.toggleGrabberAuto();
+        sleep(350);
 
-        driveTrain.moveForwardsBy(telemetry, -24);
+        driveTrain.moveForwardsBy(telemetry, -20);
         driveTrain.turnToHeading(gyro, telemetry, 90);
         driveTrain.moveForwardsBy(telemetry, 50);
+
+        grabber.setHeightTo(telemetry, 0);
 
     }
 }
