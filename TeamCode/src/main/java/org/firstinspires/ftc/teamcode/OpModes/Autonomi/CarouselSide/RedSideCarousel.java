@@ -50,12 +50,15 @@ public class RedSideCarousel extends LinearOpMode {
 
         driveTrain.moveForwardsBy(telemetry, 3.5);
         driveTrain.turnToHeading(gyro, telemetry, 90);
-        driveTrain.moveForwardsBy(telemetry, -12);
+        driveTrain.moveForwardsBy(telemetry, -22);
         driveTrain.turnToHeading(gyro, telemetry, 0);
 
         misc.toggleCarouselAuto();
-        sleep(1000);
-        driveTrain.moveForwardsBy(telemetry, 20);
+        sleep(10000);
+
+        driveTrain.moveForwardsBy(telemetry, 16);
+        driveTrain.turnToHeading(gyro, telemetry, -90);
+        driveTrain.moveForwardsBy(telemetry, 6);
 
     }
 }
