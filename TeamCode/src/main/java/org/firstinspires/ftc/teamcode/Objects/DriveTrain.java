@@ -69,9 +69,9 @@ public class DriveTrain{
     }
 
     private void goForwardsTo(double inches) throws InterruptedException{
-        Thread.sleep(1000);
+        Thread.sleep(1);
         resetEncoders();
-        Thread.sleep(1000);
+        Thread.sleep(1);
         int targetPosition;
         double rotations;
 
@@ -116,6 +116,7 @@ public class DriveTrain{
             telemetry.update();
             Thread.sleep(1);
         }
+        Thread.sleep(10);
     }
 
     public boolean isBusy(){

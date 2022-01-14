@@ -60,5 +60,7 @@ public class RedSideCarousel extends LinearOpMode {
         driveTrain.turnToHeading(gyro, telemetry, -90);
         driveTrain.moveForwardsBy(telemetry, 6);
 
+        grabber.setHeightTo(telemetry, 0);
+
     }
 }
