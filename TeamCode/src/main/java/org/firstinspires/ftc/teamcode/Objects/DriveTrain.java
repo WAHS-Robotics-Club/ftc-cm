@@ -29,10 +29,10 @@ public class DriveTrain{
         driveTrain.blMotor = hardwareMap.dcMotor.get("backLeftMotor");
         driveTrain.brMotor = hardwareMap.dcMotor.get("backRightMotor");
 
-        driveTrain.flMotor.setZeroPowerBehavior(DcMotor.ZeroPowerBehavior.BRAKE);
-        driveTrain.frMotor.setZeroPowerBehavior(DcMotor.ZeroPowerBehavior.BRAKE);
-        driveTrain.blMotor.setZeroPowerBehavior(DcMotor.ZeroPowerBehavior.BRAKE);
-        driveTrain.brMotor.setZeroPowerBehavior(DcMotor.ZeroPowerBehavior.BRAKE);
+        driveTrain.flMotor.setZeroPowerBehavior(DcMotor.ZeroPowerBehavior.FLOAT);
+        driveTrain.frMotor.setZeroPowerBehavior(DcMotor.ZeroPowerBehavior.FLOAT);
+        driveTrain.blMotor.setZeroPowerBehavior(DcMotor.ZeroPowerBehavior.FLOAT);
+        driveTrain.brMotor.setZeroPowerBehavior(DcMotor.ZeroPowerBehavior.FLOAT);
 
         driveTrain.toggleSpeed = new Toggle();
 
