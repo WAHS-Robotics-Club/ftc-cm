@@ -14,6 +14,7 @@ public class Misc {
     public static Misc initMiscellaneous(HardwareMap hardwareMap){
         Misc misc = new Misc();
         misc.toggleCarouselPower = new Toggle();
+        misc.toggleCarouselDirection = new Toggle();
         misc.carouselServo = (CRServoImplEx) hardwareMap.crservo.get("spinnerServo");
 
         return misc;
