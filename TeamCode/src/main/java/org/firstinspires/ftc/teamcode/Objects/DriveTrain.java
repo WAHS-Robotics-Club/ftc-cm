@@ -111,11 +111,7 @@ public class DriveTrain{
         setBasePower(0.8);
         goForwardsTo(inches);
         Thread.sleep(10);
-        while(isBusy() && i < 100){
-            telemetry.update();
-            i++;
-            Thread.sleep(1);
-        }
+        telemetry.update();
     }
 
     public boolean isBusy(){
