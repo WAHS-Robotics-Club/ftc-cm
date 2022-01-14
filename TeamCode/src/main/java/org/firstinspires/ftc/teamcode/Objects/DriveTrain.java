@@ -69,6 +69,7 @@ public class DriveTrain{
     }
 
     private void goForwardsTo(double inches) throws InterruptedException{
+        Thread.sleep(1);
         resetEncoders();
         Thread.sleep(1);
         int targetPosition;
@@ -82,9 +83,9 @@ public class DriveTrain{
         blMotor.setTargetPosition(targetPosition);
         brMotor.setTargetPosition(-targetPosition);
 
-        Thread.sleep(1000);
+        Thread.sleep(1);
         setRunMode(DcMotor.RunMode.RUN_TO_POSITION);
-        Thread.sleep(1000);
+        Thread.sleep(1);
     }
 
     public void setRunMode(DcMotor.RunMode runMode){
@@ -111,11 +112,13 @@ public class DriveTrain{
         setBasePower(0.8);
         goForwardsTo(inches);
         Thread.sleep(10);
-        while(isBusy() && i < 4000){
+        while(isBusy()){
             telemetry.update();
             i++;
             Thread.sleep(1);
         }
+
+
     }
 
     public boolean isBusy(){
@@ -157,10 +160,7 @@ public class DriveTrain{
             blMotor.setPower(-startingPower * modifier);
             brMotor.setPower(-startingPower * modifier);
         }else{
-            flMotor.setPower(0);
-            frMotor.setPower(0);
-            blMotor.setPower(0);
-            brMotor.setPower(0);
+            stopRobot();
         }
     }
 
@@ -175,14 +175,20 @@ public class DriveTrain{
             turnRobotToHeading(gyro.getHeading(), targetHeading);
             Thread.sleep(1);
         }
+
+        Thread.sleep(10);
         flMotor.setPower(0);
         frMotor.setPower(0);
         blMotor.setPower(0);
         brMotor.setPower(0);
-        for(int i = 0; i < 250; i++){
-            telemetry.update();
-            Thread.sleep(1);
-        }
+        Thread.sleep(10);
+
+    }
+
+    private void stopRobot() throws InterruptedException{
+        Thread.sleep(10);
+
+        Thread.sleep(10);
     }
 
 }
