@@ -103,19 +103,19 @@ public class DriveTrain{
     }
 
     public void resetEncoders(){
+        setBasePower(0);
         setRunMode(DcMotor.RunMode.STOP_AND_RESET_ENCODER);
+        setBasePower(0.8);
     }
 
     public void moveForwardsBy(Telemetry telemetry, double inches) throws InterruptedException{
         //Going Forwards
-        setBasePower(0.8);
         goForwardsTo(inches);
         Thread.sleep(10);
         while(isBusy()){
             telemetry.update();
             Thread.sleep(1);
         }
-        setBasePower(0);
     }
 
     public boolean isBusy(){
