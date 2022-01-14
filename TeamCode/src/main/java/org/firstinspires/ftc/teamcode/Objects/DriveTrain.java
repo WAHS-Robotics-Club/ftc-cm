@@ -119,7 +119,7 @@ public class DriveTrain{
     }
 
     public boolean isBusy(){
-        return (flMotor.isBusy() || blMotor.isBusy() || frMotor.isBusy() || brMotor.isBusy());
+        return (flMotor.isBusy() && blMotor.isBusy() && frMotor.isBusy() && brMotor.isBusy());
     }
 
     public boolean isCorrectHeading(int currentHeading){
