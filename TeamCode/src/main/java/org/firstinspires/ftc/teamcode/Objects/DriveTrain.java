@@ -69,9 +69,9 @@ public class DriveTrain{
     }
 
     private void goForwardsTo(double inches) throws InterruptedException{
-        Thread.sleep(1);
+        Thread.sleep(1000);
         resetEncoders();
-        Thread.sleep(1);
+        Thread.sleep(1000);
         int targetPosition;
         double rotations;
 
@@ -160,8 +160,11 @@ public class DriveTrain{
             blMotor.setPower(-startingPower * modifier);
             brMotor.setPower(-startingPower * modifier);
         }else{
-            stopRobot();
-        }
+            flMotor.setPower(0);
+            frMotor.setPower(0);
+            blMotor.setPower(0);
+            brMotor.setPower(0);
+                    }
     }
 
 
@@ -185,11 +188,6 @@ public class DriveTrain{
 
     }
 
-    private void stopRobot() throws InterruptedException{
-        Thread.sleep(10);
-
-        Thread.sleep(10);
-    }
 
 }
 
