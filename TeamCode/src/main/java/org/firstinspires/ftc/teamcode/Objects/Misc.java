@@ -7,32 +7,49 @@ import com.qualcomm.robotcore.hardware.HardwareMap;
 import org.firstinspires.ftc.teamcode.Tool.Toggle;
 
 public class Misc {
-    Toggle toggleCarouselServo;
+    Toggle toggleCarouselPower;
+    Toggle toggleCarouselDirection;
     CRServoImplEx carouselServo;
 
     public static Misc initMiscellaneous(HardwareMap hardwareMap){
         Misc misc = new Misc();
-        misc.toggleCarouselServo = new Toggle();
+        misc.toggleCarouselPower = new Toggle();
         misc.carouselServo = (CRServoImplEx) hardwareMap.crservo.get("spinnerServo");
 
         return misc;
     }
 
-    public void toggleCarouselManual(Gamepad gamepad){
+    public void toggleCarouselPowerManual(Gamepad gamepad){
         if(gamepad.b){
-            toggleCarouselServo.toggle();
+            toggleCarouselPower.toggle();
         }
     }
 
-    public void toggleCarouselAuto() throws InterruptedException{
-        toggleCarouselServo.toggle();
+    public void toggleCarouselPowerAuto() throws InterruptedException{
+        toggleCarouselPower.toggle();
+        Thread.sleep(50);
+        runCarouselServo();
+    }
+
+    public void toggleCarouselDirectionManual(Gamepad gamepad){
+        if(gamepad.a){
+            toggleCarouselDirection.toggle();
+        }
+    }
+
+    public void toggleCarouselDirectionAuto() throws InterruptedException{
+        toggleCarouselDirection.toggle();
         Thread.sleep(50);
         runCarouselServo();
     }
 
     public void runCarouselServo(){
-        if(toggleCarouselServo.isToggled()){
-            carouselServo.setPower(1);
+        if(toggleCarouselPower.isToggled()){
+            if(toggleCarouselDirection.isToggled()){
+                carouselServo.setPower(-1);
+            }else{
+                carouselServo.setPower(1);
+            }
         }else{
             carouselServo.setPower(0);
         }

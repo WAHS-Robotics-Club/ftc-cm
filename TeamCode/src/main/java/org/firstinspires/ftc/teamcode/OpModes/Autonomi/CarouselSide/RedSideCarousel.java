@@ -60,7 +60,7 @@ public class RedSideCarousel extends LinearOpMode {
         driveTrain.turnToHeading(gyro, telemetry, 0);
 
         //Carousel go brrr
-        misc.toggleCarouselAuto();
+        misc.toggleCarouselPowerAuto();
         sleep(10000);
 
         //Makes it go park

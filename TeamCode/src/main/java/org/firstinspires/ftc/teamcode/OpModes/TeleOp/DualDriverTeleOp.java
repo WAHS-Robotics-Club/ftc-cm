@@ -42,7 +42,7 @@ public class DualDriverTeleOp extends OpMode {
         telemetry.addData("Spool Motor Position", grabber.spoolMotor.getCurrentPosition());
 
         //Misc controls
-        misc.toggleCarouselManual(gamepad2);
+        misc.toggleCarouselPowerManual(gamepad2);
         misc.runCarouselServo();
     }
 

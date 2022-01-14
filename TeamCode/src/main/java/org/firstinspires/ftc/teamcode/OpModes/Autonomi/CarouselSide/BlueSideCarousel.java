@@ -46,6 +46,9 @@ public class BlueSideCarousel extends LinearOpMode {
         sleep(1000);
         misc.toggleCarouselAuto();
     */
+        //Sets up the correct carousel direction
+        misc.toggleCarouselDirectionAuto();
+
 
         grabber.toggleGrabberAuto();
         grabber.setHeightTo(telemetry, 1000);
@@ -55,11 +58,11 @@ public class BlueSideCarousel extends LinearOpMode {
         //Makes it face away from the wall
         driveTrain.turnToHeading(gyro, telemetry, -90);
         //Makes it scootch back
-        driveTrain.moveForwardsBy(telemetry, -20);
-        //Makes it turn so that the green boi hits the carousel
+        driveTrain.moveForwardsBy(telemetry, -18);
+
 
         //Carousel go brrr
-        misc.toggleCarouselAuto();
+        misc.toggleCarouselPowerAuto();
         sleep(10000);
 
         //Makes it go park
