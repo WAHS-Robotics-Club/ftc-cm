@@ -110,7 +110,6 @@ public class DriveTrain{
 
     public void moveForwardsBy(Telemetry telemetry, double inches) throws InterruptedException{
         //Going Forwards
-        setBrakeAction(DcMotor.ZeroPowerBehavior.BRAKE);
         goForwardsTo(inches);
         Thread.sleep(10);
         while(isBusy()){
