@@ -82,9 +82,9 @@ public class DriveTrain{
         blMotor.setTargetPosition(targetPosition);
         brMotor.setTargetPosition(-targetPosition);
 
-        Thread.sleep(500);
+        Thread.sleep(1000);
         setRunMode(DcMotor.RunMode.RUN_TO_POSITION);
-        Thread.sleep(500);
+        Thread.sleep(1000);
     }
 
     public void setRunMode(DcMotor.RunMode runMode){
@@ -102,10 +102,7 @@ public class DriveTrain{
     }
 
     public void resetEncoders(){
-        flMotor.setMode(DcMotor.RunMode.STOP_AND_RESET_ENCODER);
-        frMotor.setMode(DcMotor.RunMode.STOP_AND_RESET_ENCODER);
-        blMotor.setMode(DcMotor.RunMode.STOP_AND_RESET_ENCODER);
-        brMotor.setMode(DcMotor.RunMode.STOP_AND_RESET_ENCODER);
+        setRunMode(DcMotor.RunMode.STOP_AND_RESET_ENCODER);
     }
 
     public void moveForwardsBy(Telemetry telemetry, double inches) throws InterruptedException{
