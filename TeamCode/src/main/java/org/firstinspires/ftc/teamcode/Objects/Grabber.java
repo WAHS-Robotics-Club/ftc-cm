@@ -83,9 +83,6 @@ public class Grabber {
 
     public void ManualSpoolMotor(Gamepad gamepad) {
         //Moves the arm up and down
-        if(gamepad.a){
-            ManualResetSpool();
-        }else{
             if (gamepad.right_trigger >= 0.1 && gamepad.left_trigger >= 0.1) {
                 SpoolMotorControl(0, gamepad);
             } else if (gamepad.right_trigger >= 0.1) {
@@ -95,17 +92,6 @@ public class Grabber {
             } else {
                 SpoolMotorControl(0, gamepad);
             }
-        }
-    }
-
-    public void ManualResetSpool() {
-        if(spoolMotor.getCurrentPosition() > 1000){
-            spoolMotor.setPower(-1);
-        }else if(spoolMotor.getCurrentPosition() > 0){
-            spoolMotor.setPower(-0.1);
-        }else if(spoolMotor.getCurrentPosition() < 0){
-            spoolMotor.setPower(0.1);
-        }
     }
 
     private void SpoolMotorControl(float Power, Gamepad gamepad){

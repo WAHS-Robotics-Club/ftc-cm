@@ -2,6 +2,7 @@ package org.firstinspires.ftc.teamcode.OpModes.Autonomi;
 
 import com.qualcomm.robotcore.eventloop.opmode.Autonomous;
 import com.qualcomm.robotcore.eventloop.opmode.LinearOpMode;
+import com.qualcomm.robotcore.hardware.DcMotor;
 
 import org.firstinspires.ftc.teamcode.Objects.BananaFruit;
 import org.firstinspires.ftc.teamcode.Objects.DriveTrain;
@@ -17,7 +18,7 @@ public class TestAutonomous extends LinearOpMode {
 
     @Override
     public void runOpMode() throws InterruptedException {
-        driveTrain = DriveTrain.initDriveTrain(hardwareMap);
+        driveTrain = DriveTrain.initDriveTrain(hardwareMap, DcMotor.ZeroPowerBehavior.BRAKE);
         grabber = Grabber.initGrabber(hardwareMap);
 
         telemetry.addData("IsBusy", driveTrain.isBusy());

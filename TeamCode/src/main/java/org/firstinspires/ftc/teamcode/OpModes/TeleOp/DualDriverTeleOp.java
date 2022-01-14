@@ -19,7 +19,7 @@ public class DualDriverTeleOp extends OpMode {
     public void init(){
         //Hardware mapping the servos:
         grabber = Grabber.initGrabber(hardwareMap);
-        driveTrain = DriveTrain.initDriveTrain(hardwareMap);
+        driveTrain = DriveTrain.initDriveTrain(hardwareMap, DcMotor.ZeroPowerBehavior.FLOAT);
         misc = Misc.initMiscellaneous(hardwareMap);
 
         driveTrain.resetEncoders();

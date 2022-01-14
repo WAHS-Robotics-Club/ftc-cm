@@ -20,7 +20,7 @@ public class DriveTrain{
     //Sets the acceptable margin of error for the heading (in degrees)
     final double HEADING_ACCURACY = 2;
 
-    public static DriveTrain initDriveTrain(HardwareMap hardwareMap) {
+    public static DriveTrain initDriveTrain(HardwareMap hardwareMap, DcMotor.ZeroPowerBehavior brakeAction) {
         //Hardware mapping the motors:
         DriveTrain driveTrain = new DriveTrain();
 
@@ -29,10 +29,10 @@ public class DriveTrain{
         driveTrain.blMotor = hardwareMap.dcMotor.get("backLeftMotor");
         driveTrain.brMotor = hardwareMap.dcMotor.get("backRightMotor");
 
-        driveTrain.flMotor.setZeroPowerBehavior(DcMotor.ZeroPowerBehavior.FLOAT);
-        driveTrain.frMotor.setZeroPowerBehavior(DcMotor.ZeroPowerBehavior.FLOAT);
-        driveTrain.blMotor.setZeroPowerBehavior(DcMotor.ZeroPowerBehavior.FLOAT);
-        driveTrain.brMotor.setZeroPowerBehavior(DcMotor.ZeroPowerBehavior.FLOAT);
+        driveTrain.flMotor.setZeroPowerBehavior(brakeAction);
+        driveTrain.frMotor.setZeroPowerBehavior(brakeAction);
+        driveTrain.blMotor.setZeroPowerBehavior(brakeAction);
+        driveTrain.brMotor.setZeroPowerBehavior(brakeAction);
 
         driveTrain.toggleSpeed = new Toggle();
 
@@ -110,6 +110,7 @@ public class DriveTrain{
 
     public void moveForwardsBy(Telemetry telemetry, double inches) throws InterruptedException{
         //Going Forwards
+        setBrakeAction(DcMotor.ZeroPowerBehavior.BRAKE);
         goForwardsTo(inches);
         Thread.sleep(10);
         while(isBusy()){
