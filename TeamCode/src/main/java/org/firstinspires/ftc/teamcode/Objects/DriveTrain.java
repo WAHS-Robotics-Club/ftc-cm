@@ -108,13 +108,11 @@ public class DriveTrain{
 
     public void moveForwardsBy(Telemetry telemetry, double inches) throws InterruptedException{
         //Going Forwards
-        int i = 0;
         setBasePower(0.8);
         goForwardsTo(inches);
         Thread.sleep(10);
         while(isBusy()){
             telemetry.update();
-            i++;
             Thread.sleep(1);
         }
         setBasePower(0);
