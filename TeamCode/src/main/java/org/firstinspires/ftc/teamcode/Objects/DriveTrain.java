@@ -116,27 +116,15 @@ public class DriveTrain{
     }
 
     public boolean isBusy(){
-        if(flMotor.isBusy() && blMotor.isBusy() && frMotor.isBusy() && brMotor.isBusy()){
-            return true;
-        }else{
-            return false;
-        }
+        return (flMotor.isBusy() || blMotor.isBusy() || frMotor.isBusy() || brMotor.isBusy());
     }
 
     public boolean isCorrectHeading(int currentHeading){
-        if(targetHeading < currentHeading + HEADING_ACCURACY && targetHeading > currentHeading - HEADING_ACCURACY){
-            return true;
-        }else{
-            return false;
-        }
+        return (targetHeading < currentHeading + HEADING_ACCURACY && targetHeading > currentHeading - HEADING_ACCURACY);
     }
 
     private boolean isWithinDangerZone(int heading){
-        if(heading > 145 || heading < -145){
-            return true;
-        }else{
-            return false;
-        }
+        return (heading > 145 || heading < -145);
     }
 
     private void turnRobotToHeading(int currentHeading, int targetHeading){
