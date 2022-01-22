@@ -46,6 +46,7 @@ public class BlueSideBasket extends LinearOpMode {
         sleep(1000);
         misc.toggleCarouselAuto();
     */
+
         grabber.toggleGrabberAuto();
         sleep(500);
         grabber.setHeightTo(telemetry, 250);
@@ -53,7 +54,7 @@ public class BlueSideBasket extends LinearOpMode {
         driveTrain.moveForwardsBy(telemetry, 9);
         driveTrain.turnToHeading(gyro, telemetry, 35);
         grabber.setHeightTo(telemetry, 2000);
-        driveTrain.moveForwardsBy(telemetry, 25);
+        driveTrain.moveForwardsBy(telemetry, 23);
         sleep(700);
         grabber.toggleGrabberAuto();
         sleep(350);
