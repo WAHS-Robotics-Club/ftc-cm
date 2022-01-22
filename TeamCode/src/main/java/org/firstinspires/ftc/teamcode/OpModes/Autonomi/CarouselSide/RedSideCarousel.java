@@ -48,6 +48,8 @@ public class RedSideCarousel extends LinearOpMode {
     */
 
         grabber.toggleGrabberAuto();
+        sleep(500);
+
         grabber.setHeightTo(telemetry, 1000);
 
         //Pulls the robot out
