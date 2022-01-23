@@ -53,11 +53,11 @@ public class RedSideCarousel extends LinearOpMode {
         grabber.setHeightTo(telemetry, 1000);
 
         //Pulls the robot out
-        driveTrain.moveForwardsBy(telemetry, 6);
+        driveTrain.moveForwardsBy(telemetry, 7);
         //Makes it face away from the wall
         driveTrain.turnToHeading(gyro, telemetry, 90);
         //Makes it scootch back
-        driveTrain.moveForwardsBy(telemetry, -19);
+        driveTrain.moveForwardsBy(telemetry, -17);
         //Makes it turn so that the green boi hits the carousel
         driveTrain.turnToHeading(gyro, telemetry, 0);
 
@@ -66,11 +66,11 @@ public class RedSideCarousel extends LinearOpMode {
         sleep(10000);
 
         //Makes it go park
-        driveTrain.moveForwardsBy(telemetry, 19);
+        driveTrain.moveForwardsBy(telemetry, 20);
         driveTrain.turnToHeading(gyro, telemetry, -90);
 
 
-        driveTrain.moveForwardsBy(telemetry, -1);
+        driveTrain.moveForwardsBy(telemetry, 4);
         grabber.setHeightTo(telemetry, 0);
         sleep(500);
         grabber.toggleGrabberAuto();

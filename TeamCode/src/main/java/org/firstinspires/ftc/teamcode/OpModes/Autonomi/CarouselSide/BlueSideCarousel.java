@@ -55,11 +55,11 @@ public class BlueSideCarousel extends LinearOpMode {
         grabber.setHeightTo(telemetry, 1000);
 
         //Pulls the robot out
-        driveTrain.moveForwardsBy(telemetry, 6);
+        driveTrain.moveForwardsBy(telemetry, 7);
         //Makes it face away from the wall
         driveTrain.turnToHeading(gyro, telemetry, -90);
         //Makes it scootch back
-        driveTrain.moveForwardsBy(telemetry, -17.5);
+        driveTrain.moveForwardsBy(telemetry, -16);
 
 
         //Carousel go brrr
@@ -68,7 +68,7 @@ public class BlueSideCarousel extends LinearOpMode {
 
         //Makes it go park
         driveTrain.turnToHeading(gyro, telemetry, 0);
-        driveTrain.moveForwardsBy(telemetry, 17);
+        driveTrain.moveForwardsBy(telemetry, 20);
         driveTrain.turnToHeading(gyro, telemetry, -90);
 
         driveTrain.moveForwardsBy(telemetry, -2);
