@@ -10,6 +10,7 @@ import org.firstinspires.ftc.teamcode.Objects.Grabber;
 import org.firstinspires.ftc.teamcode.Objects.Misc;
 
 @Autonomous(name ="Reset - Autonomous")
+
 public class ResetAutonomous extends LinearOpMode {
 
     DriveTrain driveTrain;
@@ -46,12 +47,11 @@ public class ResetAutonomous extends LinearOpMode {
         sleep(1000);
         misc.toggleCarouselAuto();
     */
-
+        grabber.setHeightTo(telemetry, 0);
 
         grabber.rightServo.setPosition(0.05);
         grabber.leftServo.setPosition(0.95);
 
-        grabber.setHeightTo(telemetry, 0);
         sleep(500);
 
     }
