@@ -36,8 +36,8 @@ public class Grabber {
             rightServo.setPosition(0.95);
             leftServo.setPosition(0.05);
         }else{
-            rightServo.setPosition(0.5);
-            leftServo.setPosition(0.5);
+            rightServo.setPosition(0.3);
+            leftServo.setPosition(0.7);
         }
     }
 
