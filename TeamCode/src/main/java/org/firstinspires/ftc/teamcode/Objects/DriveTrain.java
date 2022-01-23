@@ -174,10 +174,12 @@ public class DriveTrain{
         //Turning
         targetHeading = -inputTargetHeading;
         setRunMode(DcMotor.RunMode.RUN_USING_ENCODER);
-        while(!isCorrectHeading(gyro.getHeading())){
+        int i = 0;
+        while(!isCorrectHeading(gyro.getHeading()) || i < 3500){
             telemetry.update();
             turnRobotToHeading(gyro.getHeading(), targetHeading);
             Thread.sleep(1);
+            i++;
         }
 
         Thread.sleep(10);
