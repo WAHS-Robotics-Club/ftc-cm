@@ -11,10 +11,14 @@ public class DriveTrain{
     //Initializing the dc motor objects:
     //Gradle Evil
 
-    DcMotor flMotor;
-    DcMotor frMotor;
-    DcMotor blMotor;
-    public DcMotor brMotor;
+    DcMotor flMotor0;
+    DcMotor frMotor0;
+    DcMotor blMotor0;
+    DcMotor brMotor0;
+    DcMotor flMotor1;
+    DcMotor frMotor1;
+    DcMotor blMotor1;
+    DcMotor brMotor1;
     Toggle toggleSpeed;
     int targetHeading;
     //Sets the acceptable margin of error for the heading (in degrees)
@@ -24,15 +28,23 @@ public class DriveTrain{
         //Hardware mapping the motors:
         DriveTrain driveTrain = new DriveTrain();
 
-        driveTrain.flMotor = hardwareMap.dcMotor.get("frontLeftMotor");
-        driveTrain.frMotor = hardwareMap.dcMotor.get("frontRightMotor");
-        driveTrain.blMotor = hardwareMap.dcMotor.get("backLeftMotor");
-        driveTrain.brMotor = hardwareMap.dcMotor.get("backRightMotor");
+        driveTrain.flMotor0 = hardwareMap.dcMotor.get("frontLeftMotor0");
+        driveTrain.frMotor0 = hardwareMap.dcMotor.get("frontRightMotor0");
+        driveTrain.blMotor0 = hardwareMap.dcMotor.get("backLeftMotor0");
+        driveTrain.brMotor0 = hardwareMap.dcMotor.get("backRightMotor0");
+        driveTrain.flMotor1 = hardwareMap.dcMotor.get("frontLeftMotor1");
+        driveTrain.frMotor1 = hardwareMap.dcMotor.get("frontRightMotor1");
+        driveTrain.blMotor1 = hardwareMap.dcMotor.get("backLeftMotor1");
+        driveTrain.brMotor1 = hardwareMap.dcMotor.get("backRightMotor1");
 
-        driveTrain.flMotor.setZeroPowerBehavior(brakeAction);
-        driveTrain.frMotor.setZeroPowerBehavior(brakeAction);
-        driveTrain.blMotor.setZeroPowerBehavior(brakeAction);
-        driveTrain.brMotor.setZeroPowerBehavior(brakeAction);
+        driveTrain.flMotor0.setZeroPowerBehavior(brakeAction);
+        driveTrain.frMotor0.setZeroPowerBehavior(brakeAction);
+        driveTrain.blMotor0.setZeroPowerBehavior(brakeAction);
+        driveTrain.brMotor0.setZeroPowerBehavior(brakeAction);
+        driveTrain.flMotor1.setZeroPowerBehavior(brakeAction);
+        driveTrain.frMotor1.setZeroPowerBehavior(brakeAction);
+        driveTrain.blMotor1.setZeroPowerBehavior(brakeAction);
+        driveTrain.brMotor1.setZeroPowerBehavior(brakeAction);
 
         driveTrain.toggleSpeed = new Toggle();
 
@@ -41,15 +53,23 @@ public class DriveTrain{
 
     public void manualDrive(Gamepad gamepad1){
         if(!toggleSpeed.isToggled()) {
-            flMotor.setPower(gamepad1.left_stick_x + -gamepad1.left_stick_y + gamepad1.right_stick_x);
-            frMotor.setPower(gamepad1.left_stick_x + gamepad1.left_stick_y + gamepad1.right_stick_x);
-            blMotor.setPower(-gamepad1.left_stick_x + -gamepad1.left_stick_y + gamepad1.right_stick_x);
-            brMotor.setPower(-gamepad1.left_stick_x + gamepad1.left_stick_y + gamepad1.right_stick_x);
+            flMotor0.setPower(gamepad1.left_stick_x + -gamepad1.left_stick_y + gamepad1.right_stick_x);
+            frMotor0.setPower(gamepad1.left_stick_x + gamepad1.left_stick_y + gamepad1.right_stick_x);
+            blMotor0.setPower(-gamepad1.left_stick_x + -gamepad1.left_stick_y + gamepad1.right_stick_x);
+            brMotor0.setPower(-gamepad1.left_stick_x + gamepad1.left_stick_y + gamepad1.right_stick_x);
+            flMotor1.setPower(gamepad1.left_stick_x + -gamepad1.left_stick_y + gamepad1.right_stick_x);
+            frMotor1.setPower(gamepad1.left_stick_x + gamepad1.left_stick_y + gamepad1.right_stick_x);
+            blMotor1.setPower(-gamepad1.left_stick_x + -gamepad1.left_stick_y + gamepad1.right_stick_x);
+            brMotor1.setPower(-gamepad1.left_stick_x + gamepad1.left_stick_y + gamepad1.right_stick_x);
         }else{
-            flMotor.setPower((gamepad1.left_stick_x + -gamepad1.left_stick_y + gamepad1.right_stick_x)/4);
-            frMotor.setPower((gamepad1.left_stick_x + gamepad1.left_stick_y + gamepad1.right_stick_x)/4);
-            blMotor.setPower((-gamepad1.left_stick_x + -gamepad1.left_stick_y + gamepad1.right_stick_x)/4);
-            brMotor.setPower((-gamepad1.left_stick_x + gamepad1.left_stick_y + gamepad1.right_stick_x)/4);
+            flMotor0.setPower((gamepad1.left_stick_x + -gamepad1.left_stick_y + gamepad1.right_stick_x)/4);
+            frMotor0.setPower((gamepad1.left_stick_x + gamepad1.left_stick_y + gamepad1.right_stick_x)/4);
+            blMotor0.setPower((-gamepad1.left_stick_x + -gamepad1.left_stick_y + gamepad1.right_stick_x)/4);
+            brMotor0.setPower((-gamepad1.left_stick_x + gamepad1.left_stick_y + gamepad1.right_stick_x)/4);
+            flMotor1.setPower((gamepad1.left_stick_x + -gamepad1.left_stick_y + gamepad1.right_stick_x)/4);
+            frMotor1.setPower((gamepad1.left_stick_x + gamepad1.left_stick_y + gamepad1.right_stick_x)/4);
+            blMotor1.setPower((-gamepad1.left_stick_x + -gamepad1.left_stick_y + gamepad1.right_stick_x)/4);
+            brMotor1.setPower((-gamepad1.left_stick_x + gamepad1.left_stick_y + gamepad1.right_stick_x)/4);
         }
     }
 
@@ -62,10 +82,10 @@ public class DriveTrain{
     public static void logTelemetry(Telemetry telemetry, DriveTrain driveTrain) {
         //telemetry.addData("Heading", driveTrain.getHeading() + " degrees");
         //1120 ticks in a rotation
-        telemetry.addData("FL Power", driveTrain.flMotor.getPower());
-        telemetry.addData("FR Power", driveTrain.frMotor.getPower());
-        telemetry.addData("BL Power", driveTrain.blMotor.getPower());
-        telemetry.addData("BR Power", driveTrain.brMotor.getPower());
+        telemetry.addData("FL Power", driveTrain.flMotor0.getPower());
+        telemetry.addData("FR Power", driveTrain.frMotor0.getPower());
+        telemetry.addData("BL Power", driveTrain.blMotor0.getPower());
+        telemetry.addData("BR Power", driveTrain.brMotor0.getPower());
     }
 
     private void goForwardsTo(double inches) throws InterruptedException{
@@ -81,10 +101,10 @@ public class DriveTrain{
         rotations = inches / (4*Math.PI);
         targetPosition = (int)(rotations * 1120);
 
-        flMotor.setTargetPosition(targetPosition);
-        frMotor.setTargetPosition(-targetPosition);
-        blMotor.setTargetPosition(targetPosition);
-        brMotor.setTargetPosition(-targetPosition);
+        flMotor0.setTargetPosition(targetPosition);
+        frMotor0.setTargetPosition(-targetPosition);
+        blMotor0.setTargetPosition(targetPosition);
+        brMotor0.setTargetPosition(-targetPosition);
 
         Thread.sleep(1);
         setRunMode(DcMotor.RunMode.RUN_TO_POSITION);
@@ -92,17 +112,17 @@ public class DriveTrain{
     }
 
     public void setRunMode(DcMotor.RunMode runMode){
-        flMotor.setMode(runMode);
-        frMotor.setMode(runMode);
-        blMotor.setMode(runMode);
-        brMotor.setMode(runMode);
+        flMotor0.setMode(runMode);
+        frMotor0.setMode(runMode);
+        blMotor0.setMode(runMode);
+        brMotor0.setMode(runMode);
     }
 
     public void setBasePower(double power){
-        flMotor.setPower(power);
-        frMotor.setPower(power);
-        blMotor.setPower(power);
-        brMotor.setPower(power);
+        flMotor0.setPower(power);
+        frMotor0.setPower(power);
+        blMotor0.setPower(power);
+        brMotor0.setPower(power);
     }
 
     public void resetEncoders(){
@@ -123,7 +143,7 @@ public class DriveTrain{
     }
 
     public boolean isBusy(){
-        return (flMotor.isBusy() && blMotor.isBusy() && frMotor.isBusy() && brMotor.isBusy());
+        return (flMotor0.isBusy() && blMotor0.isBusy() && frMotor0.isBusy() && brMotor0.isBusy());
     }
 
     public boolean isCorrectHeading(int currentHeading){
@@ -151,20 +171,20 @@ public class DriveTrain{
         startingPower = 0.1;
 
         if(targetHeading < currentHeading - HEADING_ACCURACY){
-            flMotor.setPower(startingPower * modifier);
-            frMotor.setPower(startingPower * modifier);
-            blMotor.setPower(startingPower * modifier);
-            brMotor.setPower(startingPower * modifier);
+            flMotor0.setPower(startingPower * modifier);
+            frMotor0.setPower(startingPower * modifier);
+            blMotor0.setPower(startingPower * modifier);
+            brMotor0.setPower(startingPower * modifier);
         }else if(targetHeading > currentHeading + HEADING_ACCURACY){
-            flMotor.setPower(-startingPower * modifier);
-            frMotor.setPower(-startingPower * modifier);
-            blMotor.setPower(-startingPower * modifier);
-            brMotor.setPower(-startingPower * modifier);
+            flMotor0.setPower(-startingPower * modifier);
+            frMotor0.setPower(-startingPower * modifier);
+            blMotor0.setPower(-startingPower * modifier);
+            brMotor0.setPower(-startingPower * modifier);
         }else{
-            flMotor.setPower(0);
-            frMotor.setPower(0);
-            blMotor.setPower(0);
-            brMotor.setPower(0);
+            flMotor0.setPower(0);
+            frMotor0.setPower(0);
+            blMotor0.setPower(0);
+            brMotor0.setPower(0);
         }
     }
 
@@ -183,10 +203,10 @@ public class DriveTrain{
         }
 
         Thread.sleep(10);
-        flMotor.setPower(0);
-        frMotor.setPower(0);
-        blMotor.setPower(0);
-        brMotor.setPower(0);
+        flMotor0.setPower(0);
+        frMotor0.setPower(0);
+        blMotor0.setPower(0);
+        brMotor0.setPower(0);
         Thread.sleep(10);
 
     }
