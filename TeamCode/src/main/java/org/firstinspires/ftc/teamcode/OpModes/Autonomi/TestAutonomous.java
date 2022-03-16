@@ -19,7 +19,6 @@ public class TestAutonomous extends LinearOpMode {
     @Override
     public void runOpMode() throws InterruptedException {
         driveTrain = DriveTrain.initDriveTrain(hardwareMap, DcMotor.ZeroPowerBehavior.BRAKE);
-        grabber = Grabber.initGrabber(hardwareMap);
 
         telemetry.addData("IsBusy", driveTrain.isBusy());
         driveTrain.logTelemetry(telemetry, driveTrain);
@@ -33,9 +32,7 @@ public class TestAutonomous extends LinearOpMode {
 
         //ONLY MODIFY STUFF AFTER THIS
 
-        //Sets the height to a safe height
-        grabber.setHeightTo(telemetry, 500);
-        grabber.toggleGrabberAuto();
+
 
         driveTrain.moveForwardsBy(telemetry, 12);
 
@@ -53,6 +50,9 @@ public class TestAutonomous extends LinearOpMode {
         driveTrain.moveForwardsBy(telemetry, 12);
 
         driveTrain.turnToHeading(gyro, telemetry, 0);
+        driveTrain.moveForwardsBy(telemetry, -12);
+
+        driveTrain.turnToHeading(gyro, telemetry, 90);
         driveTrain.moveForwardsBy(telemetry, -12);
 
         //STILL REQUIRES TESTING
