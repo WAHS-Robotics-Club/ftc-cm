@@ -105,6 +105,10 @@ public class DriveTrain{
         frMotor0.setTargetPosition(-targetPosition);
         blMotor0.setTargetPosition(targetPosition);
         brMotor0.setTargetPosition(-targetPosition);
+        flMotor1.setTargetPosition(targetPosition);
+        frMotor1.setTargetPosition(-targetPosition);
+        blMotor1.setTargetPosition(targetPosition);
+        brMotor1.setTargetPosition(-targetPosition);
 
         Thread.sleep(1);
         setRunMode(DcMotor.RunMode.RUN_TO_POSITION);
@@ -116,6 +120,10 @@ public class DriveTrain{
         frMotor0.setMode(runMode);
         blMotor0.setMode(runMode);
         brMotor0.setMode(runMode);
+        flMotor1.setMode(runMode);
+        frMotor1.setMode(runMode);
+        blMotor1.setMode(runMode);
+        brMotor1.setMode(runMode);
     }
 
     public void setBasePower(double power){
@@ -123,6 +131,10 @@ public class DriveTrain{
         frMotor0.setPower(power);
         blMotor0.setPower(power);
         brMotor0.setPower(power);
+        flMotor1.setPower(power);
+        frMotor1.setPower(power);
+        blMotor1.setPower(power);
+        brMotor1.setPower(power);
     }
 
     public void resetEncoders(){
@@ -143,7 +155,7 @@ public class DriveTrain{
     }
 
     public boolean isBusy(){
-        return (flMotor0.isBusy() && blMotor0.isBusy() && frMotor0.isBusy() && brMotor0.isBusy());
+        return (flMotor0.isBusy() && blMotor0.isBusy() && frMotor0.isBusy() && brMotor0.isBusy() && flMotor1.isBusy() && blMotor1.isBusy() && frMotor1.isBusy() && brMotor1.isBusy());
     }
 
     public boolean isCorrectHeading(int currentHeading){
@@ -175,16 +187,28 @@ public class DriveTrain{
             frMotor0.setPower(startingPower * modifier);
             blMotor0.setPower(startingPower * modifier);
             brMotor0.setPower(startingPower * modifier);
+            flMotor1.setPower(startingPower * modifier);
+            frMotor1.setPower(startingPower * modifier);
+            blMotor1.setPower(startingPower * modifier);
+            brMotor1.setPower(startingPower * modifier);
         }else if(targetHeading > currentHeading + HEADING_ACCURACY){
             flMotor0.setPower(-startingPower * modifier);
             frMotor0.setPower(-startingPower * modifier);
             blMotor0.setPower(-startingPower * modifier);
             brMotor0.setPower(-startingPower * modifier);
+            flMotor1.setPower(-startingPower * modifier);
+            frMotor1.setPower(-startingPower * modifier);
+            blMotor1.setPower(-startingPower * modifier);
+            brMotor1.setPower(-startingPower * modifier);
         }else{
             flMotor0.setPower(0);
             frMotor0.setPower(0);
             blMotor0.setPower(0);
             brMotor0.setPower(0);
+            flMotor1.setPower(0);
+            frMotor1.setPower(0);
+            blMotor1.setPower(0);
+            brMotor1.setPower(0);
         }
     }
 
@@ -207,6 +231,10 @@ public class DriveTrain{
         frMotor0.setPower(0);
         blMotor0.setPower(0);
         brMotor0.setPower(0);
+        flMotor1.setPower(0);
+        frMotor1.setPower(0);
+        blMotor1.setPower(0);
+        brMotor1.setPower(0);
         Thread.sleep(10);
 
     }
