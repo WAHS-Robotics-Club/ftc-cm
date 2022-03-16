@@ -92,7 +92,7 @@ public class DriveTrain{
         Thread.sleep(1);
         resetEncoders();
         Thread.sleep(1);
-        setBasePower(0.8);
+        setPowerAll(0.8);
         Thread.sleep(1);
 
         int targetPosition;
@@ -126,21 +126,10 @@ public class DriveTrain{
         brMotor1.setMode(runMode);
     }
 
-    public void setBasePower(double power){
-        flMotor0.setPower(power);
-        frMotor0.setPower(power);
-        blMotor0.setPower(power);
-        brMotor0.setPower(power);
-        flMotor1.setPower(power);
-        frMotor1.setPower(power);
-        blMotor1.setPower(power);
-        brMotor1.setPower(power);
-    }
-
     public void resetEncoders(){
-        setBasePower(0);
+        setPowerAll(0);
         setRunMode(DcMotor.RunMode.STOP_AND_RESET_ENCODER);
-        setBasePower(0);
+        setPowerAll(0);
     }
 
     public void moveForwardsBy(Telemetry telemetry, double inches) throws InterruptedException{
@@ -183,32 +172,11 @@ public class DriveTrain{
         startingPower = 0.1;
 
         if(targetHeading < currentHeading - HEADING_ACCURACY){
-            flMotor0.setPower(startingPower * modifier);
-            frMotor0.setPower(startingPower * modifier);
-            blMotor0.setPower(startingPower * modifier);
-            brMotor0.setPower(startingPower * modifier);
-            flMotor1.setPower(startingPower * modifier);
-            frMotor1.setPower(startingPower * modifier);
-            blMotor1.setPower(startingPower * modifier);
-            brMotor1.setPower(startingPower * modifier);
+            setPowerAll(startingPower * modifier);
         }else if(targetHeading > currentHeading + HEADING_ACCURACY){
-            flMotor0.setPower(-startingPower * modifier);
-            frMotor0.setPower(-startingPower * modifier);
-            blMotor0.setPower(-startingPower * modifier);
-            brMotor0.setPower(-startingPower * modifier);
-            flMotor1.setPower(-startingPower * modifier);
-            frMotor1.setPower(-startingPower * modifier);
-            blMotor1.setPower(-startingPower * modifier);
-            brMotor1.setPower(-startingPower * modifier);
+            setPowerAll(-startingPower * modifier);
         }else{
-            flMotor0.setPower(0);
-            frMotor0.setPower(0);
-            blMotor0.setPower(0);
-            brMotor0.setPower(0);
-            flMotor1.setPower(0);
-            frMotor1.setPower(0);
-            blMotor1.setPower(0);
-            brMotor1.setPower(0);
+            setPowerAll(0);
         }
     }
 
@@ -227,16 +195,20 @@ public class DriveTrain{
         }
 
         Thread.sleep(10);
-        flMotor0.setPower(0);
-        frMotor0.setPower(0);
-        blMotor0.setPower(0);
-        brMotor0.setPower(0);
-        flMotor1.setPower(0);
-        frMotor1.setPower(0);
-        blMotor1.setPower(0);
-        brMotor1.setPower(0);
+        setPowerAll(0);
         Thread.sleep(10);
 
+    }
+
+    public void setPowerAll(double power){
+        flMotor0.setPower(power);
+        frMotor0.setPower(power);
+        blMotor0.setPower(power);
+        brMotor0.setPower(power);
+        flMotor1.setPower(power);
+        frMotor1.setPower(power);
+        blMotor1.setPower(power);
+        brMotor1.setPower(power);
     }
 
 
