@@ -14,7 +14,7 @@ public class DriveTrain{
     DcMotor flMotor;
     DcMotor frMotor;
     DcMotor blMotor;
-    DcMotor brMotor;
+    public DcMotor brMotor;
     Toggle toggleSpeed;
     int targetHeading;
     //Sets the acceptable margin of error for the heading (in degrees)
