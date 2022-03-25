@@ -8,7 +8,7 @@ import org.firstinspires.ftc.teamcode.Objects.DriveTrain;
 import org.firstinspires.ftc.teamcode.Objects.Grabber;
 import org.firstinspires.ftc.teamcode.Objects.Misc;
 
-@TeleOp(name ="Single Driver TeleOp - CM", group = "TeleOp")
+@TeleOp(name ="Single Driver TeleOp - BIG ROBOT", group = "TeleOp")
 public class SingleDriverTeleOp extends OpMode {
     //Initializing the main objects:
     DriveTrain driveTrain;

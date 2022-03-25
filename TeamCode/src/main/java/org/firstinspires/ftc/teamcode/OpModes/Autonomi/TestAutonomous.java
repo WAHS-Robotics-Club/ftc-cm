@@ -13,8 +13,6 @@ import org.firstinspires.ftc.teamcode.Objects.Misc;
 public class TestAutonomous extends LinearOpMode {
 
     DriveTrain driveTrain;
-    Grabber grabber;
-    Misc misc;
 
     @Override
     public void runOpMode() throws InterruptedException {
